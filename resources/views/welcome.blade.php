@@ -28,8 +28,8 @@
   <!-- Navigation -->
   <nav class="navbar static-top" style="background: linear-gradient(45deg, #0a002c, #0a002c , #5f2c82)">
     <div class="container">
-      <a class="navbar-brand text-light" href="#">S-LUCY</a>
-      <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c , #5f2c82); border-radius: 1.5rem; border: transparent;" href="{{ route('login')}}">Sign In</a>
+      <a class="navbar-brand" style="color: rgb(255, 255, 255)" href="#">S-LUCY</a>
+      <a class="btn " style=" color:rgb(255, 255, 255); background: linear-gradient(45deg, #0a002c, #0a002c , #5f2c82); border-radius: 1.5rem; border: transparent;" href="{{ route('login')}}">Sign In</a>
     </div>
   </nav>
 
@@ -39,7 +39,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5 text-warning"><img src="img/ss.png">
+          <h1 class="mb-5" style="color: rgb(249, 253, 0)"><img src="img/ss.png">
             Welcome, this is S-LUCY!</h1>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
@@ -65,28 +65,28 @@
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
             <div class="features-icons-icon d-flex">
-              <i class="fas fa-braille m-auto text-light"></i>
+              <i class="fas fa-braille m-auto" style="color: rgb(255, 255, 255)"></i>
             </div>
-            <h3 class="text-light">Smart Plug</h3>
-            <p class=" text-light lead mb-0">This Plug will look great, so cool! control and set by you</p>
+            <h3 style="color: rgb(255, 255, 255)">Smart Plug</h3>
+            <p class="lead mb-0" style="color: rgb(255, 255, 255)">This Plug will look great, so cool! control and set by you</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
             <div class="features-icons-icon d-flex">
-              <i class="icon-layers m-auto text-light"></i>
+              <i class="icon-layers m-auto" style="color: rgb(255, 255, 255)"></i>
             </div>
-            <h3 class="text-light">Smart Switch</h3>
-            <p class="lead mb-0 text-light">You can also control and set timer</p>
+            <h3 style="color: rgb(255, 255, 255)">Smart Switch</h3>
+            <p class="lead mb-0" style="color: rgb(255, 255, 255)">You can also control and set timer</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-0 mb-lg-3">
             <div class="features-icons-icon d-flex">
-              <i class="icon-check m-auto text-light"></i>
+              <i class="icon-check m-auto" style="color: rgb(255, 255, 255)"></i>
             </div>
-            <h3 class="text-light">Easy to Use</h3>
-            <p class=" text-light lead mb-0">Ready to use , or customize the S-Lucy!</p>
+            <h3 style="color: rgb(255, 255, 255)"">Easy to Use</h3>
+            <p class="lead mb-0" style="color: rgb(255, 255, 255)">Ready to use , or customize the S-Lucy!</p>
           </div>
         </div>
       </div>
@@ -100,22 +100,22 @@
 
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/smartplug.jpg');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-          <h2 class="text-light">Smart Plug</h2>
-          <p class="text-light lead mb-0">When you use a plug, you know that that will look great!</p>
+          <h2 style="color: rgb(255, 255, 255)">Smart Plug</h2>
+          <p class="lead mb-0" style="color: rgb(255, 255, 255)">When you use a plug, you know that that will look great!</p>
         </div>
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/smartfitting.jpeg');"></div>
         <div class="col-lg-6 my-auto showcase-text">
-          <h2 class="text-light">Smart Switch</h2>
-          <p class=" text-light lead mb-0">Newly improved because this is Fitting Lamp, and full of great utility classes, This Is Smart Switch! </p>
+          <h2 style="color: rgb(255, 255, 255)">Smart Switch</h2>
+          <p class="lead mb-0" style="color: rgb(255, 255, 255)">Newly improved because this is Fitting Lamp, and full of great utility classes, This Is Smart Switch! </p>
         </div>
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-new.jpg');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-          <h2 class="text-light">Easy to Use &amp; Customize</h2>
-          <p class="text-light lead mb-0">Beautiful Design easy to understand!</p>
+          <h2 style="color: rgb(255, 255, 255)">Easy to Use &amp; Customize</h2>
+          <p class="lead mb-0" style="color: rgb(255, 255, 255)">Beautiful Design easy to understand!</p>
         </div>
       </div>
     </div>
@@ -124,27 +124,27 @@
   <!-- Testimonials -->
   <section class="testimonials text-center bg-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">
     <div class="container">
-      <h2 class="text-light mb-5">People On A Team</h2>
+      <h2 class=" mb-5" style="color: rgb(255, 255, 255)">People On A Team</h2>
       <div class="row">
         <div class="col-lg-4">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-            <h5 class="text-light">Almyra Rosedyana</h5>
-            <p class="text-light font-weight-light mb-0">"Smart Switch (Fitting Lamp) Builder"</p>
+            <h5 style="color: rgb(255, 255, 255)">Almyra Rosedyana</h5>
+            <p class=" font-weight-light mb-0" style="color: rgb(255, 255, 255)">"Smart Switch (Fitting Lamp) Builder"</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
-            <h5 class="text-light">Khoerunnisa Cahya Amalia</h5>
-            <p class="text-light font-weight-light mb-0">"S-Lucy Website Developer & Design"</p>
+            <h5 style="color: rgb(255, 255, 255)">Khoerunnisa Cahya Amalia</h5>
+            <p class="font-weight-light mb-0" style="color: rgb(255, 255, 255)">"S-Lucy Website Developer & Design"</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
-            <h5 class="text-light">Lulu Tania</h5>
-            <p class="text-light font-weight-light mb-0">"Smart Plug Builder"</p>
+            <h5 style="color: rgb(255, 255, 255)">Lulu Tania</h5>
+            <p class="font-weight-light mb-0" style="color: rgb(255, 255, 255)">"Smart Plug Builder"</p>
           </div>
         </div>
       </div>
@@ -166,7 +166,7 @@
                 <input type="email" class="form-control form-control-lg" style="opacity: 80%; border-radius:1.5rem" placeholder="Enter your email...">
               </div>
               <div class="col-12 col-md-3">
-                <a href="register.html" type="submit" class="btn text-light btn-lg" style="border-radius: 1.5rem;border: transparent;background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">Sign up!</a>
+                <a href="{{ route('regist')}}" type="submit" class="btn text-light btn-lg" style="border-radius: 1.5rem;border: transparent;background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">Sign up!</a>
               </div>
             </div>
           </form>
@@ -179,41 +179,33 @@
   <footer class="footer" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 h-100 text-center text-lg-left my-auto text-light">
-          <ul class="list-inline mb-2 text-light">
-            <li class="list-inline-item text-light">
-              <a class="text-light" href="#">About</a>
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto"style="color: rgb(255, 255, 255)">
+          <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
+            <li class="list-inline-item" style="color: rgb(255, 255, 255)">
+              <a style="color: rgb(255, 255, 255)" href="#">About</a>
             </li>
-            <li class="list-inline-item text-light">&sdot;</li>
-            <li class="list-inline-item text-light">
-              <a class="text-light" href="#">Contact</a>
-            </li>
-            <li class="list-inline-item text-light">&sdot;</li>
-            <li class="list-inline-item text-light">
-              <a class="text-light" href="#">Terms of Use</a>
-            </li>
-            <li class="list-inline-item text-light">&sdot;</li>
-            <li class="list-inline-item text-light">
-              <a class="text-light" href="#">Privacy Policy</a>
+            <li class="list-inline-item" style="color: rgb(255, 255, 255)">&sdot;</li>
+            <li class="list-inline-item "style="color: rgb(255, 255, 255)">
+              <a style="color: rgb(255, 255, 255)" href="{{route ('contact')}}">Contact</a>
             </li>
           </ul>
-          <p class="small mb-4 mb-lg-0 text-light">&copy; S-LUCY Website 'year' . All Rights Reserved.</p>
+          <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)">&copy; S-LUCY Website {{Carbon\Carbon::now()->format('l, d F Y')}} . All Rights Reserved.</span>
         </div>
-        <div class="col-lg-6 h-100 text-center text-lg-right my-auto text-light">
-          <ul class="list-inline mb-0 text-light">
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto" style="color: rgb(255, 255, 255)">
+          <ul class="list-inline mb-0" style="color:rgb(255, 255, 255);">
             <li class="list-inline-item mr-3">
-              <a href="#">
-                <i class="fas fa-envelope fa-2x fa-fw text-light"></i>
+              <a href="https://slucyinfo@gmail.com">
+                <i class="fas fa-envelope fa-2x fa-fw" style="color: rgb(255, 255, 255)" ></i>
               </a>
             </li>
-            <li class="list-inline-item mr-3 text-light">
-              <a href="#">
-                <i class="fab fa-telegram fa-2x fa-fw text-light"></i>
+            <li class="list-inline-item mr-3">
+              <a href="https://t.me/slucywebsite">
+                <i class="fab fa-telegram fa-2x fa-fw" style="color:rgb(255, 255, 255)";></i>
               </a>
             </li>
-            <li class="list-inline-item text-light">
+            <li class="list-inline-item">
               <a href="#">
-                <i class="fab fa-instagram fa-2x fa-fw text-light"></i>
+                <i class="fab fa-instagram fa-2x fa-fw" style="color:rgb(255, 255, 255)";></i>
               </a>
             </li>
           </ul>

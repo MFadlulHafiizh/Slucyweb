@@ -36,7 +36,7 @@
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.png" style="width: 75px; height: 75 px;">
                 </div>
-                <div class="sidebar-brand-text mx-3 text-white">S-Lucy
+                <div class="sidebar-brand-text mx-3" style="color: white">S-Lucy
                     <sub>Website</sub>
                 </div>
             </a>
@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link text-light" href="dashboard.html">
+                <a class="nav-link" style="color:white " href="dashboard.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -61,15 +61,21 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed text-light" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" style="color:rgb(255, 250, 250);" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
-                <div id="collapseTwo" class="collapse text-light " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse " style="color:rgb(185, 185, 185);" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="py-2 collapse-inner rounded " style=" background: linear-gradient(45deg, #49a09d, #5f2c82)">
-                        <h6 class="collapse-header">Custom Your S-LUCY:</h6>
-                        <a class="collapse-item text-light" href="cards.html">Product Status</a>
+                        <h6 class="collapse-header">Your S-LUCY ID:</h6>
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{route('registid')}}">
+                            <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
+                            Regist ID
+                        </a>
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{route('signid')}}">
+                            <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
+                        Sign ID </a>
                     </div>
                 </div>
             </li>
@@ -89,13 +95,8 @@
             <!-- Sidebar Message -->
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
-                <p class="text-center mb-2 text-light"><strong>Regist or Sign ID</strong> Input Your S-Lucy ID's here</p>
-                <a class="btn" href="registid.php">
-                    <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
-                    Regist ID</a>
-                    <a class="btn" href="signid.php">
-                    <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
-                        Sign ID</a>
+                <p class="text-center mb-2 text-light"><strong>Be strong</strong> With S-Lucy </p>
+                
             </div>
 
         </ul>
@@ -111,39 +112,14 @@
                 <nav class="navbar navbar-expand bg-white topbar mb-4 static-top shadow" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82) ">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" style="color: rgb(255, 255, 255)">
+                        <i class="fa fa-bars" ></i>
                     </button>
 
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow" >
@@ -159,10 +135,6 @@
                                 <a class="dropdown-item" href="Profile.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="activitylog.php">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
@@ -182,7 +154,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-light">Dashboard</h1>
+                        <h1 class="h3 mb-0 " style="color:rgb(255, 255, 255);">Dashboard</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -199,7 +171,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">27</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="far fa-sun fa-2x"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -217,7 +189,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-plus-square fa-2x"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -232,12 +204,12 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Control Action</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Customize S-LUCY</h6>
                                     
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <table class="table table-dark table-hover">
+                                    <table class="table table-hover" style="background: transparent;">
                                         <thead>
                                             <tr>
                                                 <td>No</td>
@@ -360,8 +332,8 @@
             <!-- Footer -->
             <footer class="sticky-footer " style="background: linear-gradient (45deg, #49a09d, #5f2c82);">
                 <div class="container my-auto" >
-                    <div class="copyright text-center my-auto text-light">
-                        <span>Copyright &copy; S-LUCY Website 2021</span>
+                    <div class="copyright text-center my-auto" style="color:rgb(255, 250, 250);">
+                        <span>Copyright &copy; S-LUCY Website {{ $reformatDate }}</span>
                     </div>
                 </div>
             </footer>

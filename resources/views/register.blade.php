@@ -61,17 +61,13 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-user btn-block text-light" style="border:transparent; background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                <a href="{{route('login')}}" class="btn btn-user btn-block text-light" style="border:transparent; background: linear-gradient(45deg, #49a09d, #5f2c82)">
                                     Register Account
-                                </a>
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
                                 </a>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small text-gray-500" href="{{ route('login')}}">Already have an account? Login!</a>
+                                <a class="small" style="color:rgb(185, 185, 185);" href="{{ route('login')}}">Already have an account? Login!</a>
                             </div>
                             <div class="text-center">
                                 <a class="small" style="color:rgb(185, 185, 185);" href="{{ url()->previous()}}">go back</a>

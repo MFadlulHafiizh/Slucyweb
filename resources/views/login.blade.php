@@ -61,10 +61,6 @@
                                         <a href="{{ route('dashboard') }}" class="btn btn-user btn-block text-light" style="border:transparent ;background: linear-gradient(45deg, #49a09d, #5f2c82)">
                                             Login
                                         </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
                                     </form>
                                     <hr>
                                     <div class="text-center">

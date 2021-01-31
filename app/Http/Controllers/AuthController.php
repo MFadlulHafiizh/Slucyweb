@@ -15,4 +15,7 @@ class AuthController extends Controller
     public function forgotpass(){
         return view('forgotpass');
     }
+    public function contact(){
+        return view('contact');
+    }
 }
