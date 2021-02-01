@@ -23,6 +23,8 @@
     <style>
         .btnRound{
             border-radius: 2rem;
+            background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 );
+            color: white;
         }
     </style>
 
@@ -231,7 +233,7 @@
                                                 <td>13022</td>
                                                 <td>Plug</td>
                                                 <td>08.00 - 12.00</td>
-                                                <td><button class="btn btn-primary btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
+                                                <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
                                             </tr>
                                             <tr style="text-align: center;">
@@ -239,7 +241,7 @@
                                                 <td>13031</td>
                                                 <td>Plug</td>
                                                 <td>09.30 - 12.00</td>
-                                                <td><button class="btn btn-primary btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
+                                                <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
                                             </tr>
                                             <tr style="text-align: center;">
@@ -247,7 +249,7 @@
                                                 <td>13123</td>
                                                 <td>switch</td>
                                                 <td>10.00 - 15.00</td>
-                                                <td><button class="btn btn-primary btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
+                                                <td><button class="btn btnRound " type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
                                             </tr>
                                             {{-- @endforeach --}}
@@ -368,7 +370,6 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <li>
                   <ul><input type="checkbox" value="Monday"><span class="ml-3">Monday</span></ul>
                   <ul><input type="checkbox" value="Tuesday"><span class="ml-3">Tuesday</span></ul>
                   <ul><input type="checkbox" value="Wednesday"><span class="ml-3">Wednesday</span></ul>
@@ -376,11 +377,10 @@
                   <ul><input type="checkbox" value="Friday"><span class="ml-3">Friday</span></ul>
                   <ul><input type="checkbox" value="Saturday"><span class="ml-3">Saturday</span></ul>
                   <ul><input type="checkbox" value="Sunday"><span class="ml-3">Sunday</span></ul>
-              </li>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Save changes</button>
             </div>
           </div>
         </div>
