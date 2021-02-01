@@ -23,5 +23,7 @@ Route::get('contact', [AuthController::class, 'contact'])->name('contact');
 Route::get('forgot-password', [AuthController::class, 'forgotpass'])->name('forgotpass');
 Route::get('dashboard', [MainController::class, 'index'])->name('dashboard');
 Route::get('regist-id', [MainController::class, 'registid'])->name('registid');
+Route::get('reset-password', [AuthController::class, 'resetpass'])->name('resetpass');
+Route::get('about', [AuthController::class, 'about'])->name('about');
 Route::get('sign-id', [MainController::class, 'signid'])->name('signid');
 
