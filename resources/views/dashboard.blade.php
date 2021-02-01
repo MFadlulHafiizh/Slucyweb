@@ -20,6 +20,11 @@
         <link href="css/switch.css" rel="stylesheet"/>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .btnRound{
+            border-radius: 2rem;
+        }
+    </style>
 
 </head>
 
@@ -211,35 +216,38 @@
                                 <div class="card-body">
                                     <table class="table table-hover" style="background: transparent;">
                                         <thead>
-                                            <tr>
+                                            <tr style="text-align: center;">
                                                 <td>No</td>
                                                 <td>S-Lucy ID</td>
                                                 <td>Product Name</td>
-                                                <td>Set Timer</td>
-                                                <td colspan="2">Action</td>
+                                                <td colspan="2">Set Timer</td>
+                                                <td>Action</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {{-- @foreach (($collection) as $item) --}}
-                                            <tr>
+                                            <tr style="text-align: center;">
                                                 <td>1</td>
                                                 <td>13022</td>
                                                 <td>Plug</td>
                                                 <td>08.00 - 12.00</td>
+                                                <td><button class="btn btn-primary btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
                                             </tr>
-                                            <tr>
+                                            <tr style="text-align: center;">
                                                 <td>2</td>
                                                 <td>13031</td>
                                                 <td>Plug</td>
                                                 <td>09.30 - 12.00</td>
+                                                <td><button class="btn btn-primary btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
                                             </tr>
-                                            <tr>
+                                            <tr style="text-align: center;">
                                                 <td>3</td>
                                                 <td>13123</td>
                                                 <td>switch</td>
-                                                <td>13.00 - 15.00</td>
+                                                <td>10.00 - 15.00</td>
+                                                <td><button class="btn btn-primary btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
                                             </tr>
                                             {{-- @endforeach --}}
@@ -351,6 +359,33 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+    {{-- RepeatModals --}}
+    <div class="modal fade" id="modalRepeat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+              <li>
+                  <ul><input type="checkbox" value="Monday"><span class="ml-3">Monday</span></ul>
+                  <ul><input type="checkbox" value="Tuesday"><span class="ml-3">Tuesday</span></ul>
+                  <ul><input type="checkbox" value="Wednesday"><span class="ml-3">Wednesday</span></ul>
+                  <ul><input type="checkbox" value="Thursday"><span class="ml-3">Thursday</span></ul>
+                  <ul><input type="checkbox" value="Friday"><span class="ml-3">Friday</span></ul>
+                  <ul><input type="checkbox" value="Saturday"><span class="ml-3">Saturday</span></ul>
+                  <ul><input type="checkbox" value="Sunday"><span class="ml-3">Sunday</span></ul>
+              </li>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -387,6 +422,9 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <script>
+
+    </script>
 
 </body>
 
