@@ -39,7 +39,7 @@
         <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.png" style="width: 75px; height: 75 px;">
                 </div>
@@ -53,7 +53,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" style="color:white " href="#">
+                <a class="nav-link" style="color:white ">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -175,10 +175,10 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Switch Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">27</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="far fa-sun fa-2x"></i>
+                                            <i class="far fa-sun fa-2x" style="color: #d8d8d8"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -193,10 +193,10 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Plug Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-plus-square fa-2x"></i>
+                                            <i class="fas fa-plus-square fa-2x" style="color: #d8d8d8"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +207,7 @@
                     <!-- Content Row -->
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
-                            <div class="card shadow mb-4" style="overflow: auto">
+                            <div class="card border-left-danger shadow mb-4" style="overflow: auto">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -267,7 +267,7 @@
                         <div class="col-lg-6 mb-4">
 
                             <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
+                            <div class="card  border-left-warning shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Smart Switch (Fitting Lamp)</h6>
                                 </div>
@@ -296,7 +296,7 @@
                         <div class="col-lg-6 mb-4">
 
                             <!-- Illustrations -->
-                            <div class="card shadow mb-4">
+                            <div class="card border-left-warning shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Smart Plug</h6>
                                 </div>
@@ -314,7 +314,7 @@
                             </div>
 
                             <!-- Approach -->
-                            <div class="card shadow mb-4">
+                            <div class="card border-left-dark shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">S-LUCY Website</h6>
                                 </div>
@@ -366,7 +366,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Repeat Day</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
@@ -380,6 +380,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Reset</button>
               <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Save changes</button>
             </div>
           </div>
@@ -416,12 +417,6 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
 
     {{-- Firebase --}}
     <!-- The core Firebase JS SDK is always required and must be listed first -->

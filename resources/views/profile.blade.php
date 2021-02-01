@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>User Profile</title>
+    <title>SLUCY - Register</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -22,58 +22,31 @@
 
 </head>
 
-<body class="bg-gradient-primary" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">
+<body class="bg-gradient" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">
 
     <div class="container">
 
         <div class="card o-hidden border-0 shadow-lg my-5" style="background: linear-gradient(45deg, #49a09d, #5f2c82)">
-            <div class="card-body p-0">
+            <div class="card-body" >
+                <div class="text-center">
+                    <h1 class="h4 text-light mt-3 mb-4">Edit Your Profile</h1>
+                </div>
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block">
-                        <form class="user">
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                        placeholder="First Name">
+                    <div class="col-lg-5 d-none d-lg-block ml-2">
+                        <form class="user mt-5">
+                                <div class="form-group">
+                                    <input type="media" class="form-control form-control-user" id="browsephoto"
+                                        placeholder="Browse Photo">
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                        placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Email Address">
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user"
-                                        id="exampleInputPassword" placeholder="Password">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="password" class="form-control form-control-user"
-                                        id="exampleRepeatPassword" placeholder="Repeat Password">
-                                </div>
-                            </div>
-                            <a href="{{route('login')}}" class="btn btn-user btn-block text-light" style="border:transparent; background: linear-gradient(45deg, #49a09d, #5f2c82)">
-                                Register Account
-                            </a>
-                        </form>
-                        <hr>
-                        <div class="text-center">
-                            <a class="small" style="color:rgb(185, 185, 185);" href="{{ route('login')}}">Already have an account? Login!</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" style="color:rgb(185, 185, 185);" href="{{ url()->previous()}}">go back</a>
-                        </div>
+                                <a href="#" class="btn btn-user btn-block text-light" style="border:transparent; background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                    Browse
+                                </a>
+                            </form>
                     </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-light mb-4">Create an Account!</h1>
-                            </div>
+                    <div class="col-lg-6 justify-center">
+                        <div class="p-3">
+                           
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -99,12 +72,10 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="{{route('login')}}" class="btn btn-user btn-block text-light" style="border:transparent; background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                <a href="#" class="btn btn-user btn-block text-light" style="border:transparent; background: linear-gradient(45deg, #49a09d, #5f2c82)">
                                     Save
                                 </a>
                             </form>
-                            <hr>
-                            
                         </div>
                     </div>
                 </div>
@@ -114,11 +85,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>

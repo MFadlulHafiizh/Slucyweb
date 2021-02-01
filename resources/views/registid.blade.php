@@ -1,180 +1,289 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+
+<head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/3531b2b087.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/sb-admin-2.css">
+    <title>S-Lucy Website</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <link href="css/switch.css" rel="stylesheet"/>
+    <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-    <title>S-LUCY Website</title>
     <style>
-       html,
-        body {
-            height: 100%;
-        }
+        html,
+ 
+         body {
+             margin: 0;
+             background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82);
+             font-family: 'Poppins', sans-serif;
+             font-weight: 100;
+         }
+         .container {
+             position: absolute;
+             top: 45%;
+             left: 75%;
+             transform: translate(-50%, -50%);
+         }
+ 
+         table {
+             width: 500px;
+             border-collapse: collapse;
+             overflow: hidden;
+             box-shadow: 0 0 20px rgba(0,0,0,0.1);
+             border-radius: 1.5rem ;
+         }
+ 
+         th,
+         td {
+             padding: 15px;
+             background-color: rgba(255,255,255,0.2);
+             color: #fff;
+             text-align: center;
+             }
+         .td .btn {
+             background: linear-gradient (45deg,#0a002c, #0a002c,#0a002c , #5f2c82);
+         }
+         th {
+             text-align: center;
+             background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)
+         }
+         tr {background-color: rgba(255,255,255,0.3);}
+         .navbar-brand .img-logo{
+             width:70px;
+             height:70px;
+         }
+ 
+         .option{
+             width: 290px;
+             border-color: #B8F9FF;
+             background: transparent;
+             border-radius: 2rem;
+             color: white;
+         }   
+     </style>
 
-        body {
-            margin: 0;
-            background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 100;
-        }
+</head>
 
+<body id="page-top" >
 
-        .container {
-            position: absolute;
-            top: 45%;
-            left: 75%;
-            transform: translate(-50%, -50%);
-        }
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-        table {
-            width: 500px;
-            border-collapse: collapse;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 1.5rem ;
-        }
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
 
-        th,
-        td {
-            padding: 15px;
-            background-color: rgba(255,255,255,0.2);
-            color: #fff;
-            text-align: center;
-            }
-        .td .btn {
-            background: linear-gradient (45deg,#0a002c, #0a002c,#0a002c , #5f2c82);
-        }
-        th {
-            text-align: center;
-            background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)
-        }
-        tr {background-color: rgba(255,255,255,0.3);}
-        .navbar-brand .img-logo{
-            width:70px;
-            height:70px;
-        }
-    </style>
-  </head>
-  <body>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="sidebar-brand-icon">
+                    <img src="img/logo.png" style="width: 75px; height: 75 px;">
+                </div>
+                <div class="sidebar-brand-text mx-3" style="color: white">S-Lucy
+                    <sub>Website</sub>
+                </div>
+            </a>
 
-    <!-- Topbar -->
-    <nav class="navbar navbar-expand bg-white topbar mb-4 static-top shadow" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
-        <div class="navbar-brand d-flex">
-					<img src="img/ss.png" class="img-logo mr-3" alt="img-logo">
-				</div>
-        <!-- Sidebar Toggle (Topbar) -->
-        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-        </button>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" style="color:white" href="{{ route('dashboard')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
-        <!-- Topbar Navbar -->
-        <ul class="navbar-nav ml-auto">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-fw"></i>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed-expand" style="color:rgb(255, 250, 250);" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Components</span>
                 </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                    aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto w-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search"
-                                aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div id="collapseTwo" class="collapse show" style="color:rgb(185, 185, 185);" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded " style=" background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                        <h6 class="collapse-header">Your S-LUCY ID:</h6>
+                        <a class="collapse-item active" style="color:rgb(255, 255, 255);">
+                            <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
+                            Regist ID
+                        </a>
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{route('signid')}}">
+                            <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
+                        Sign ID </a>
+                    </div>
                 </div>
             </li>
 
             
 
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow" >
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                    <span class="mr-2 d-none d-lg-inline text-light small">User Name</span>
-                    <img class="img-profile rounded-circle"
-                        src="img/undraw_profile.svg">
-                </a>
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                    aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
-                    <a class="dropdown-item" href="Profile.php">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
-                    </a>
-                    <a class="dropdown-item" href="activitylog.php">
-                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Activity Log
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
-                    </a>
-                </div>
-            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0 text-light" id="sidebarToggle" style="background: linear-gradient(45deg, #49a09d, #5f2c82) "></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card">
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
+                <p class="text-center mb-2 text-light"><strong>Be strong</strong> With S-Lucy </p>
+                
+            </div>
 
         </ul>
-    </nav>
-    <!-- End of Topbar -->
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand bg-white topbar mb-4 static-top shadow" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82) ">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" style="color: rgb(255, 255, 255)">
+                        <i class="fa fa-bars" ></i>
+                    </button>
 
 
-  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Card -->
-    <div class="container">
-	<table>
-		<thead>
-			<tr>
-				
-				<th >Regist your S-Lucy ID</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-                <td>
-                <form class="product ml-auto">
-                        <p style="position: inline">Product :
-                        <select name='Product' style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">
-                        <option value='Switch'  style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">Switch (Fitting lamp)</option>
-                        <option value='Plug' style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">Plug</option>
-                        </select>
-                        </p>
-                    </form>
-                    <form>
-                        <input type="text" id="regist" name="regist" style="  padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem">
-                    </form>
-                    <a href="dashboard.html" class="btn btn-dark mt-4 mb-1" id="btn-toggle" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;"> 
-                        <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
-                        <span>Regist ID</span>
-                    </a>
-                </td>
-			</tr>
-			<tr>
-		</tbody>
-	</table>
-</div>
- <!-- Logout Modal-->
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow" >
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                <span class="mr-2 d-none d-lg-inline text-light small">User Name</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
+                                <a class="dropdown-item" href="Profile.php">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-7">
+                        <div class="card mb-4" style="overflow: auto; background:transparent; border: transparent;">
+                           
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <table class="table table-hover" style="background: transparent;">
+                                    <thead>
+                                        <tr style="text-align: center;">
+                                            <td>Regist your S-Lucy ID</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <form class="product ml-auto" method="post">
+                                                    <p style="position: inline">Product :
+                                                    <select name='Product' class="option">
+                                                    <option value='Switch' style="color:black;">Switch (Fitting lamp)</option>
+                                                    <option value='Plug' style="color:black;">Plug</option>
+                                                    </select>
+                                                    </p>
+                                                </form>
+                                                <form>
+                                                    <input class="pl-2 pr-2" type="text" id="regist" name="regist" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem; color:white;">
+                                                </form>
+                                                <a href="dashboard.html" class="btn btn-dark mt-4 mb-1" id="btn-toggle" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;"> 
+                                                    <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
+                                                    <span>Regist ID</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    {{-- RepeatModals --}}
+    <div class="modal fade" id="modalRepeat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Repeat Day</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                  <ul><input type="checkbox" value="Monday"><span class="ml-3">Monday</span></ul>
+                  <ul><input type="checkbox" value="Tuesday"><span class="ml-3">Tuesday</span></ul>
+                  <ul><input type="checkbox" value="Wednesday"><span class="ml-3">Wednesday</span></ul>
+                  <ul><input type="checkbox" value="Thursday"><span class="ml-3">Thursday</span></ul>
+                  <ul><input type="checkbox" value="Friday"><span class="ml-3">Friday</span></ul>
+                  <ul><input type="checkbox" value="Saturday"><span class="ml-3">Saturday</span></ul>
+                  <ul><input type="checkbox" value="Sunday"><span class="ml-3">Sunday</span></ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Reset</button>
+              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -187,47 +296,37 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.html">Logout</a>
+                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="index.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-<!-- Card -->
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    {{-- Firebase --}}
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.2.5/firebase-app.js"></script>
 
-  </body>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.2.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script>
+
+    </script>
+
+</body>
+
 </html>
