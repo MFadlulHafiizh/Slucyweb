@@ -182,7 +182,7 @@
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto"style="color: rgb(255, 255, 255)">
           <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">
-              <a style="color: rgb(255, 255, 255)" href="#">About</a>
+              <a style="color: rgb(255, 255, 255)" href="{{route ('about')}}">About</a>
             </li>
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">&sdot;</li>
             <li class="list-inline-item "style="color: rgb(255, 255, 255)">

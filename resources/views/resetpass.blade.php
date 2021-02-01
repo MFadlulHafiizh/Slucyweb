@@ -54,7 +54,7 @@
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Repeat Your New Password...">
                                         </div>
-                                        <a href="login.html" class="btn btn-user btn-block text-light" style="border: transparent;background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                        <a href="{{route('login')}}" class="btn btn-user btn-block text-light" style="border: transparent;background: linear-gradient(45deg, #49a09d, #5f2c82)">
                                             Claim New Password
                                         </a>
                                     </form>

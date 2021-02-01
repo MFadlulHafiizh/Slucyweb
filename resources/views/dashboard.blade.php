@@ -32,7 +32,7 @@
         <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.png" style="width: 75px; height: 75 px;">
                 </div>
@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" style="color:white " href="dashboard.html">
+                <a class="nav-link" style="color:white " href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -200,7 +200,7 @@
                     <!-- Content Row -->
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
-                            <div class="card shadow mb-4">
+                            <div class="card shadow mb-4" style="overflow: auto">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -248,9 +248,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Pie Chart -->
-                        
                     </div>
 
                     <!-- Content Row -->
@@ -312,7 +309,11 @@
                                     <h6 class="m-0 font-weight-bold text-primary">S-LUCY Website</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>S-LUCY makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="img/bg-masthead.jpg" alt="">
+                                    </div>
+                                    <p>S-LUCY (Smart Light Ultimate Control by Website) makes extensive use of Bootstrap 4 utility classes in order to reduce
                                         CSS bloat and poor page performance. Custom CSS classes are used to create
                                         custom components and custom utility classes.</p>
                                     <p class="mb-0">Before working with this theme, you should become familiar with the

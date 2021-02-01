@@ -49,7 +49,7 @@
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
-                                        <a href="resetpass.php" class="btn btn-user btn-block text-light" style="border: transparent;background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                        <a href="{{ route('resetpass') }}" class="btn btn-user btn-block text-light" style="border: transparent;background: linear-gradient(45deg, #49a09d, #5f2c82)">
                                             Reset Password
                                         </a>
                                     </form>
