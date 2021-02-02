@@ -4,6 +4,7 @@
 <head>
 
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -20,6 +21,8 @@
 
   <!-- Custom styles for this template -->
   <link href="css/landing-page.min.css" rel="stylesheet">
+   <!-- Custom styles for this template-->
+   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -99,21 +102,21 @@
       <div class="row no-gutters">
 
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/smartplug.jpg');"></div>
-        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+        <div class="col-lg-6 text-center order-lg-1 my-auto showcase-text">
           <h2 style="color: rgb(255, 255, 255)">Smart Plug</h2>
           <p class="lead mb-0" style="color: rgb(255, 255, 255)">When you use a plug, you know that that will look great!</p>
         </div>
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/smartfitting.jpeg');"></div>
-        <div class="col-lg-6 my-auto showcase-text">
+        <div class="col-lg-6 text-center my-auto showcase-text">
           <h2 style="color: rgb(255, 255, 255)">Smart Switch</h2>
           <p class="lead mb-0" style="color: rgb(255, 255, 255)">Newly improved because this is Fitting Lamp, and full of great utility classes, This Is Smart Switch! </p>
         </div>
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-new.jpg');"></div>
-        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+        <div class="col-lg-6 text-center order-lg-1 my-auto showcase-text">
           <h2 style="color: rgb(255, 255, 255)">Easy to Use &amp; Customize</h2>
           <p class="lead mb-0" style="color: rgb(255, 255, 255)">Beautiful Design easy to understand!</p>
         </div>
@@ -213,11 +216,32 @@
       </div>
     </div>
   </footer>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="/">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="jquery/jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Bootstrap core JavaScript-->
+   <script src="jquery/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
+   <!-- Core plugin JavaScript-->
+   <script src="jquery-easing/jquery.easing.min.js"></script>
+
+   <!-- Custom scripts for all pages-->
+   <script src="js/sb-admin-2.min.js"></script>
+
+
+   {{-- Firebase --}}
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="/__/firebase/8.2.5/firebase-app.js"></script>
+
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="/__/firebase/8.2.5/firebase-analytics.js"></script>
+
+   <!-- Initialize Firebase -->
+   <script src="/__/firebase/init.js"></script>
 </body>
 
 </html>

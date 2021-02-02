@@ -4,6 +4,7 @@
 <head>
 
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -20,6 +21,8 @@
 
   <!-- Custom styles for this template -->
   <link href="css/landing-page.min.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -143,9 +146,32 @@
     </div>
   </footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="jquery/jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="/">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+   <!-- Bootstrap core JavaScript-->
+   <script src="jquery/jquery.min.js"></script>
+   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+   <!-- Core plugin JavaScript-->
+   <script src="jquery-easing/jquery.easing.min.js"></script>
+
+   <!-- Custom scripts for all pages-->
+   <script src="js/sb-admin-2.min.js"></script>
+
+
+   {{-- Firebase --}}
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="/__/firebase/8.2.5/firebase-app.js"></script>
+
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="/__/firebase/8.2.5/firebase-analytics.js"></script>
+
+   <!-- Initialize Firebase -->
+   <script src="/__/firebase/init.js"></script>
 
 </body>
 
