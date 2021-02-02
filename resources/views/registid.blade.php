@@ -184,7 +184,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
-                                <a class="dropdown-item" href="Profile.php">
+                                <a class="dropdown-item" href="{{route('profile')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -228,7 +228,7 @@
                                                 <form>
                                                     <input class="pl-2 pr-2" type="text" id="regist" name="regist" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem; color:white;">
                                                 </form>
-                                                <a href="dashboard.html" class="btn btn-dark mt-4 mb-1" id="btn-toggle" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;"> 
+                                                <a href="{{route('dashboard')}}" class="btn btn-dark mt-4 mb-1" id="btn-toggle" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;"> 
                                                     <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
                                                     <span>Regist ID</span>
                                                 </a>
