@@ -28,7 +28,7 @@
   <!-- Navigation -->
   <nav class="navbar static-top" style="background: linear-gradient(45deg, #0a002c, #0a002c , #5f2c82)">
     <div class="container">
-      <a class="navbar-brand" style="color: rgb(255, 255, 255)" href="#">S-LUCY</a>
+      <a class="navbar-brand" style="color: rgb(255, 255, 255)" href="{{route('welcome')}}">S-LUCY</a>
       <a class="btn " style=" color:rgb(255, 255, 255); background: linear-gradient(45deg, #0a002c, #0a002c , #5f2c82); border-radius: 1.5rem; border: transparent;" href="{{ route('login')}}">Sign In</a>
     </div>
   </nav>
@@ -111,11 +111,11 @@
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto"style="color: rgb(255, 255, 255)">
           <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">
-              <a style="color: rgb(255, 255, 255)" href="#">About</a>
+              <a style="color: rgb(255, 255, 255)" href="{{route('about')}}">About</a>
             </li>
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">&sdot;</li>
             <li class="list-inline-item "style="color: rgb(255, 255, 255)">
-              <a style="color: rgb(255, 255, 255)" href="#">Contact</a>
+              <a style="color: rgb(255, 255, 255)">Contact</a>
             </li>
           </ul>
           <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)">&copy; S-LUCY Website {{Carbon\Carbon::now()->format('l, d F Y')}} . All Rights Reserved.</span>

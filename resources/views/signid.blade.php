@@ -250,32 +250,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    {{-- RepeatModals --}}
-    <div class="modal fade" id="modalRepeat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Repeat Day</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-            </div>
-            <div class="modal-body">
-                  <ul><input type="checkbox" value="Monday"><span class="ml-3">Monday</span></ul>
-                  <ul><input type="checkbox" value="Tuesday"><span class="ml-3">Tuesday</span></ul>
-                  <ul><input type="checkbox" value="Wednesday"><span class="ml-3">Wednesday</span></ul>
-                  <ul><input type="checkbox" value="Thursday"><span class="ml-3">Thursday</span></ul>
-                  <ul><input type="checkbox" value="Friday"><span class="ml-3">Friday</span></ul>
-                  <ul><input type="checkbox" value="Saturday"><span class="ml-3">Saturday</span></ul>
-                  <ul><input type="checkbox" value="Sunday"><span class="ml-3">Sunday</span></ul>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Reset</button>
-              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Save changes</button>
-            </div>
-          </div>
-        </div>
-    </div>
-
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">

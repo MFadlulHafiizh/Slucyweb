@@ -28,7 +28,7 @@
   <!-- Navigation -->
   <nav class="navbar static-top" style="background: linear-gradient(45deg, #0a002c, #0a002c , #5f2c82)">
     <div class="container">
-      <a class="navbar-brand" style="color: rgb(255, 255, 255)" href="#">S-LUCY</a>
+      <a class="navbar-brand" style="color: rgb(255, 255, 255)" href="{{route('welcome')}}">S-LUCY</a>
       <a class="btn " style=" color:rgb(255, 255, 255); background: linear-gradient(45deg, #0a002c, #0a002c , #5f2c82); border-radius: 1.5rem; border: transparent;" href="{{ route('login')}}">Sign In</a>
     </div>
   </nav>
@@ -41,10 +41,6 @@
         <div class="col-xl-9 mx-auto">
           <h1 class="mb-5" style="color: rgb(249, 253, 0)"><img src="img/ss.png">
            About S-LUCY!</h1>
-           <div class="col-xl-2 mx-auto">
-            <h6 class="mb-5" style="color: rgb(249, 253, 0)">
-                Smart Light Ultimate Control by Website, we know S-LUCY is ..</h6>
-           </div>
         </div>
       </div>
     </div>
@@ -53,13 +49,15 @@
     <section class="features-icons bg-light text-center" style="background: linear-gradient(45deg,  #0a002c, #0a002c , #5f2c82">
         <div class="container">
         <div class="row">
-            <div class="col-lg-4">
+          <div class="col-lg-12 mb-5 mt-3 text-light">
+            <p class="lead mb-0" style="color: rgb(255, 255, 255)">Smart Light Ultimate Control by Website (S-LUCY) consists of 3 main parts :</p>
+          </div>
+              <div class="col-lg-4">  
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                 <div class="features-icons-icon d-flex">
                 <i class="fas fa-braille m-auto" style="color: rgb(255, 255, 255)"></i>
                 </div>
                 <h3 style="color: rgb(255, 255, 255)">Smart Plug</h3>
-                <p class="lead mb-0" style="color: rgb(255, 255, 255)">This Plug will look great, so cool! control and set by you</p>
             </div>
             </div>
             <div class="col-lg-4">
@@ -68,17 +66,22 @@
                 <i class="icon-layers m-auto" style="color: rgb(255, 255, 255)"></i>
                 </div>
                 <h3 style="color: rgb(255, 255, 255)">Smart Switch</h3>
-                <p class="lead mb-0" style="color: rgb(255, 255, 255)">You can also control and set timer</p>
             </div>
             </div>
             <div class="col-lg-4">
             <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                 <div class="features-icons-icon d-flex">
-                <i class="icon-check m-auto" style="color: rgb(255, 255, 255)"></i>
+                  <i class="fas fa-globe-asia m-auto" style="color: rgb(255, 255, 255)"></i>
                 </div>
-                <h3 style="color: rgb(255, 255, 255)"">Easy to Use</h3>
-                <p class="lead mb-0" style="color: rgb(255, 255, 255)">Ready to use , or customize the S-Lucy!</p>
+                <h3 style="color: rgb(255, 255, 255)"">S-LUCY Website</h3>
             </div>
+            </div>
+            <div class="col-lg-12 mb-5 mt-3 text-light">
+              <p class="lead mb-0" style="color: rgb(255, 255, 255)">
+                Smart Switch (which is actually a light fixture) and the smart plug who named S-LUCY will be controlled by the S-LUCY website.
+                What can this website do? the first we can set  <i class="fas fa-power-off ml-2 mr-2"></i>  On / Off also we can set <i class="fas fa-hourglass-half ml-2 mr-2"></i> the time to control the two tools through this website.
+                This project was created in order to fulfill one of the graduate requirements to complete the Telecommunication Engineering Study Program.
+              </p>
             </div>
         </div>
         </div>
@@ -93,21 +96,22 @@
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
             <h5 style="color: rgb(255, 255, 255)">Almyra Rosedyana</h5>
-            <p class=" font-weight-light mb-0" style="color: rgb(255, 255, 255)">mail: </p>
+            <p class=" font-weight-light mb-0" style="color: rgb(255, 255, 255)"></p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
             <h5 style="color: rgb(255, 255, 255)">Khoerunnisa Cahya Amalia</h5>
-            <p class="font-weight-light mb-0" style="color: rgb(255, 255, 255)">mail: nisachy25@gmail.com</p>
+            <p class="font-weight-light mb-0" style="color: rgb(255, 255, 255)">21<sup>th<sup></p>
+            <p class="font-weight-light mb-0" style="color: rgb(255, 255, 255)">Secretary of Adaptive Network Laboratory</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
             <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
             <h5 style="color: rgb(255, 255, 255)">Lulu Tania</h5>
-            <p class="font-weight-light mb-0" style="color: rgb(255, 255, 255)">mail: </p>
+            <p class="font-weight-light mb-0" style="color: rgb(255, 255, 255)"></p>
           </div>
         </div>
       </div>
@@ -145,11 +149,11 @@
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto"style="color: rgb(255, 255, 255)">
           <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">
-              <a style="color: rgb(255, 255, 255)" href="#">About</a>
+              <a style="color: rgb(255, 255, 255)">About</a>
             </li>
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">&sdot;</li>
             <li class="list-inline-item "style="color: rgb(255, 255, 255)">
-              <a style="color: rgb(255, 255, 255)" href="#">Contact</a>
+              <a style="color: rgb(255, 255, 255)" href="{{route('contact')}}">Contact</a>
             </li>
           </ul>
           <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)">&copy; S-LUCY Website {{Carbon\Carbon::now()->format('l, d F Y')}} . All Rights Reserved.</span>

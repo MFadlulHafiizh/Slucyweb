@@ -25,5 +25,6 @@ Route::get('dashboard', [MainController::class, 'index'])->name('dashboard');
 Route::get('regist-id', [MainController::class, 'registid'])->name('registid');
 Route::get('reset-password', [AuthController::class, 'resetpass'])->name('resetpass');
 Route::get('about', [AuthController::class, 'about'])->name('about');
+Route::get('landing-page', [AuthController::class, 'welcome'])->name('welcome');
 Route::get('sign-id', [MainController::class, 'signid'])->name('signid');
-
+Route::get('profile', [MainController::class, 'profile'])->name('profile');

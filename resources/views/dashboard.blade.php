@@ -139,12 +139,12 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
-                                <a class="dropdown-item" href="Profile.php">
+                                <a class="dropdown-item" href="{{route('profile')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{route ('welcome')}}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -206,12 +206,12 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        <div class="col-xl-12 col-lg-7">
+                        <div class="col-lg-12 col-lg-7">
                             <div class="card border-left-danger shadow mb-4" style="overflow: auto">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Customize S-LUCY</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary justify-text-center">Customize S-LUCY</h6>
                                     
                                 </div>
                                 <!-- Card Body -->
@@ -222,8 +222,8 @@
                                                 <td>No</td>
                                                 <td>S-Lucy ID</td>
                                                 <td>Product Name</td>
-                                                <td colspan="2">Set Timer</td>
-                                                <td>Action</td>
+                                                <td colspan="2"><i class="fas fa-hourglass-half mr-2"></i>Set Timer</td>
+                                                <td><i class="fas fa-power-off mr-2"></i>Action</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -276,12 +276,9 @@
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                                             src="img/undraw_posting_photo.svg" alt="">
                                     </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                        unDraw &rarr;</a>
+                                    <p>What is Smart Switch(Fitting lamp) <a
+                                            target="_blank" rel="nofollow" href="https://google.com/">Fitting lamp</a>, a light fixture!</p>
+                                    <a target="_blank" rel="nofollow" href="https://google.com/">More about Smart Switch &rarr;</a>
                                 </div>
                             </div>
 
@@ -305,11 +302,9 @@
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                                             src="img/undraw_posting_photo.svg" alt="">
                                     </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">More About Smart Plug&rarr;</a>
+                                    <p>What is Smart plug?<a
+                                            target="_blank" rel="nofollow" href="https://google.com/">Plug</a></p>
+                                    <a target="_blank" rel="nofollow" href="https://google.com/">More About Smart Plug&rarr;</a>
                                 </div>
                             </div>
 
@@ -401,7 +396,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="index.html">Logout</a>
+                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="{{route ('welcome')}}">Logout</a>
                 </div>
             </div>
         </div>

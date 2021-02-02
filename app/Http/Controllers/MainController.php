@@ -18,4 +18,7 @@ class MainController extends Controller
     public function signid(){
         return view('signid');
     }
+    public function profile(){
+        return view('profile');
+    }
 }
