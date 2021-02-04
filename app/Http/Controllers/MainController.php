@@ -21,4 +21,12 @@ class MainController extends Controller
     public function profile(){
         return view('profile');
     }
+
+    public function produk(Request $request){
+        $data = \DB::table('alat')->where('id_user', $request->id_user)->get();
+
+        return response()->json([
+            'product' => $data
+        ]);
+    }
 }
