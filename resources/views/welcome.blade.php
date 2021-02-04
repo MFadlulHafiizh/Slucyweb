@@ -152,7 +152,7 @@
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6 order-lg-2 text-white showcase-img">
-          <img src="img/bg-new.jpg" class="img-fluid w-100 mx-auto" style="display: block">
+          <img src="img/bg-masthead.png" class="img-fluid w-100 mt-4 mx-auto" style="display: block">
         </div>
         <div class="col-lg-6 text-center order-lg-1 my-auto showcase-text">
           <h2 style="color: rgb(255, 255, 255)">S-LUCY Website </h2>

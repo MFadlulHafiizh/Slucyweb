@@ -223,7 +223,8 @@
                                                 <td>S-Lucy ID</td>
                                                 <td>Product Name</td>
                                                 <td colspan="2"><i class="fas fa-hourglass-half mr-2"></i>Set Timer</td>
-                                                <td><i class="fas fa-power-off mr-2"></i>Action</td>
+                                                <td><i class="fas fa-power-off mr-2"></i>Power</td>
+                                                <td>Action</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -235,6 +236,7 @@
                                                 <td>08.00 - 12.00</td>
                                                 <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
+                                                <td><button type="button" class="btn btn-link text-dark">Out</button><td>
                                             </tr>
                                             <tr style="text-align: center;">
                                                 <td>2</td>
@@ -243,6 +245,7 @@
                                                 <td>09.30 - 12.00</td>
                                                 <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
+                                                <td><button type="button" class="btn btn-link text-dark">Out</button><td>
                                             </tr>
                                             <tr style="text-align: center;">
                                                 <td>3</td>
@@ -251,6 +254,7 @@
                                                 <td>10.00 - 15.00</td>
                                                 <td><button class="btn btnRound " type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
+                                                <td><button type="button" class="btn btn-link text-dark">Out</button><td>
                                             </tr>
                                             {{-- @endforeach --}}
                                         </tbody>
