@@ -12,7 +12,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <title>S-LUCY Website</title>
     <style>
@@ -26,14 +26,6 @@
             background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82);
             font-family: 'Poppins', sans-serif;
             font-weight: 100;
-        }
-
-
-        .container {
-            position: absolute;
-            top: 45%;
-            left: 75%;
-            transform: translate(-50%, -50%);
         }
 
         table {
@@ -105,7 +97,7 @@
                 </div>
             </li>
 
-            
+
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow" >
@@ -142,31 +134,33 @@
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Card -->
     <div class="container">
-	<table>
+	<table align="center" class="mt-5">
 		<thead>
 			<tr>
-				
 				<th >Regist your S-Lucy ID</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
                 <td>
-                <form class="product ml-auto">
+                <form class="addProduct ml-auto" id="addProduct" method="POST" action="/create">
+                    @csrf
                         <p style="position: inline">Product :
-                        <select name='Product' style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">
+                        <select name='product' style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">
                         <option value='Switch'  style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">Switch (Fitting lamp)</option>
                         <option value='Plug' style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">Plug</option>
                         </select>
                         </p>
+                        <input type="text" id="registid" name="registid" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem">
+                       <br>
+                        <input type="text" id="date" class="datetimes mt-3" name="datetimes" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem">
+                        <input type="hidden" name="status" value="off" class="status" id="status">
+                        <br>
+                        <button type="submit"  class="btn btn-dark mt-4 mb-1" id="submitProduct" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;">
+                            <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
+                            <span>Regist ID</span>
+                        </button>
                     </form>
-                    <form>
-                        <input type="text" id="regist" name="regist" style="  padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem">
-                    </form>
-                    <a href="dashboard.html" class="btn btn-dark mt-4 mb-1" id="btn-toggle" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;"> 
-                        <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
-                        <span>Regist ID</span>
-                    </a>
                 </td>
 			</tr>
 			<tr>
@@ -224,10 +218,83 @@
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    {{-- <script>
+        $(function() {
+          $('input[name="datetimes"]').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+              format: 'M/DD hh:mm A'
+            }
+          });
+        });
+        </script> --}}
+    <script>
+        $(function() {
+          $('input[name="datetimes"]').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+              format: 'hh:mm A'
+            }
+          });
+        });
+        </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+
+
+      <script>
+          var config = {
+              apiKey: "{{ config('services.firebase.api_key') }}",
+              authDomain: "{{ config('services.firebase.auth_domain') }}",
+              databaseURL: "{{ config('services.firebase.database_url') }}",
+              projectId: "{{ config('services.firebase.project_id') }}",
+              storageBucket: "{{ config('services.firebase.storage_bucket') }}",
+              messagingSenderId: "{{ config('services.firebase.messaging_sender_id') }}",
+              appId: "{{ config('services.firebase.app_id') }}",
+              measurementId: "{{ config('services.firebase.measurement_id') }}"
+          };
+          firebase.initializeApp(config);
+          firebase.analytics();
+          var database = firebase.database();
+          var lastIndex = 0;
+
+                    // Add Data
+            $('#submitProduct').on('click', function () {
+            var values = $("#addProduct").serializeArray();
+            var regis = values[0].value;
+            var name = values[1].value;
+            var date = values[2].value;
+            var ID = lastIndex + 1;
+            console.log(values);
+            firebase.database().ref('SlucyWeb/' + ID).set({
+            slucyId: regis,
+            name: name,
+            date:date
+            });
+            // Reassign lastID value
+            lastIndex = ID;
+            $("#addProduct input").val("");
+            });
+      </script>
 
   </body>
 </html>

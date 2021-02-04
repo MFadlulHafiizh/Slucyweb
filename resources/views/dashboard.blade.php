@@ -20,11 +20,25 @@
         <link href="css/switch.css" rel="stylesheet"/>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
 </head>
 
 <body id="page-top" >
-
+    @if(session('status'))
+    <script>
+        swal({
+            icon: 'info',
+            title: 'Registrasi SLucy Id Berhasil!',
+        });
+    </script>
+    @endif
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -32,7 +46,7 @@
         <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.png" style="width: 75px; height: 75 px;">
                 </div>
@@ -46,7 +60,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" style="color:white " href="dashboard.html">
+                <a class="nav-link" style="color:white " href="dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -80,12 +94,12 @@
                 </div>
             </li>
 
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -96,7 +110,7 @@
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2 text-light"><strong>Be strong</strong> With S-Lucy </p>
-                
+
             </div>
 
         </ul>
@@ -205,44 +219,42 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Customize S-LUCY</h6>
-                                    
+
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <table class="table table-hover" style="background: transparent;">
+                                    <table class="table table-hover display" id="table_id" style="background: transparent;">
                                         <thead>
                                             <tr>
                                                 <td>No</td>
                                                 <td>S-Lucy ID</td>
                                                 <td>Product Name</td>
-                                                <td>Set Timer</td>
+                                                <td><i class="fas fa-hourglass-half mr-2"> Set Timer</td>
+                                                <td>Power</td>
                                                 <td colspan="2">Action</td>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            {{-- @foreach (($collection) as $item) --}}
-                                            <tr>
-                                                <td>1</td>
-                                                <td>13022</td>
-                                                <td>Plug</td>
-                                                <td>08.00 - 12.00</td>
-                                                <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>13031</td>
-                                                <td>Plug</td>
-                                                <td>09.30 - 12.00</td>
-                                                <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>13123</td>
-                                                <td>switch</td>
-                                                <td>13.00 - 15.00</td>
-                                                <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
-                                            </tr>
-                                            {{-- @endforeach --}}
+                                        <tbody id="tbody">
+                                            @if (is_array($value) || is_object($value))
+
+                                            @foreach ($value as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item['SlucyId'] }}</td>
+                                                    <td>{{ $item['product'] }}</td>
+                                                    <td>{{ $item['dateRange'] }}</td>
+                                                   <td><!-- Rounded switch -->
+                                                        <label class="switch">
+                                                          <input type="checkbox">
+                                                          <span class="slider round"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger">Out</button></td>
+                                                </tr>
+                                            @endforeach
+
+
+                                            @endif
                                         </tbody>
                                       </table>
                                 </div>
@@ -250,7 +262,7 @@
                         </div>
 
                         <!-- Pie Chart -->
-                        
+
                     </div>
 
                     <!-- Content Row -->
@@ -376,6 +388,11 @@
 
     <!-- Core plugin JavaScript-->
     <script src="jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
@@ -386,6 +403,52 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+
+
+    <script>
+        var config = {
+            apiKey: "{{ config('services.firebase.api_key') }}",
+            authDomain: "{{ config('services.firebase.auth_domain') }}",
+            databaseURL: "{{ config('services.firebase.database_url') }}",
+            projectId: "{{ config('services.firebase.project_id') }}",
+            storageBucket: "{{ config('services.firebase.storage_bucket') }}",
+            messagingSenderId: "{{ config('services.firebase.messaging_sender_id') }}",
+            appId: "{{ config('services.firebase.app_id') }}",
+            measurementId: "{{ config('services.firebase.measurement_id') }}"
+        };
+        firebase.initializeApp(config);
+        firebase.analytics();
+        var database = firebase.database();
+        var lastIndex = 0;
+
+        firebase.database().ref('dashboard/').on('value', function (snapshot) {
+            var value = snapshot.val();
+            var htmls = [];
+            $.each(value, function (index, value) {
+            if (value) {
+                htmls.push('<tr>\
+                <td>' + "1" + '</td>\
+                <td>' + value.SlucyId + '</td>\
+                <td>' + value.name + '</td>\
+                <td>' + value.dateRange + '</td>\
+                <td>' + value.status + '</td>\
+                <td><button data-toggle="modal" data-target="#update-modal" class="btn btn-info updateData" data-id="' + index + '">Update</button>\
+                <button data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="' + index + '">Delete</button></td>\
+                </tr>');
+            }
+            lastIndex = index;
+            });
+            $('#tbody').html(htmls);
+            $("#submitUser").removeClass('desabled');
+            });
+    </script>
 
 </body>
 
