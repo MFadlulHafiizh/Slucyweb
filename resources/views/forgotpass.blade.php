@@ -12,7 +12,7 @@
     <title>SLUCY - Forgot Password</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -49,16 +49,16 @@
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
-                                        <a href="resetpass.php" class="btn btn-user btn-block text-light" style="border: transparent;background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                        <a href="{{ route('resetpass') }}" class="btn btn-user btn-block text-light" style="border: transparent;background: linear-gradient(45deg, #49a09d, #5f2c82)">
                                             Reset Password
                                         </a>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small text-gray-500" href="register.html">Create an Account!</a>
+                                        <a class="small text-gray-500" href="{{route('regist')}}">Create an Account!</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small text-gray-500" href="login.html">Already have an account? Login!</a>
+                                        <a class="small text-gray-500" href="{{route('login')}}">Already have an account? Login!</a>
                                     </div>
                                 </div>
                             </div>
@@ -73,11 +73,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>

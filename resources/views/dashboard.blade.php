@@ -20,6 +20,7 @@
         <link href="css/switch.css" rel="stylesheet"/>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
@@ -28,6 +29,16 @@
     $('#table_id').DataTable();
 } );
 </script>
+=======
+    <style>
+        .btnRound{
+            border-radius: 2rem;
+            background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 );
+            color: white;
+        }
+    </style>
+
+>>>>>>> 07d6ae0a7cc6646fc3024861785bd33db7e41acc
 </head>
 
 <body id="page-top" >
@@ -46,7 +57,7 @@
         <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.png" style="width: 75px; height: 75 px;">
                 </div>
@@ -60,7 +71,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" style="color:white " href="dashboard">
+                <a class="nav-link" style="color:white ">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -146,12 +157,12 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
-                                <a class="dropdown-item" href="Profile.php">
+                                <a class="dropdown-item" href="{{route('profile')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{route ('welcome')}}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -182,10 +193,10 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Switch Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">27</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="far fa-sun fa-2x"></i>
+                                            <i class="far fa-sun fa-2x" style="color: #d8d8d8"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -200,10 +211,10 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Plug Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-plus-square fa-2x"></i>
+                                            <i class="fas fa-plus-square fa-2x" style="color: #d8d8d8"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -213,8 +224,8 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        <div class="col-xl-12 col-lg-7">
-                            <div class="card shadow mb-4">
+                        <div class="col-lg-12 col-lg-7">
+                            <div class="card border-left-danger shadow mb-4" style="overflow: auto">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -225,7 +236,7 @@
                                 <div class="card-body">
                                     <table class="table table-hover display" id="table_id" style="background: transparent;">
                                         <thead>
-                                            <tr>
+                                            <tr style="text-align: center;">
                                                 <td>No</td>
                                                 <td>S-Lucy ID</td>
                                                 <td>Product Name</td>
@@ -272,7 +283,7 @@
                         <div class="col-lg-6 mb-4">
 
                             <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
+                            <div class="card  border-left-warning shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Smart Switch (Fitting Lamp)</h6>
                                 </div>
@@ -281,12 +292,9 @@
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                                             src="img/undraw_posting_photo.svg" alt="">
                                     </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                        unDraw &rarr;</a>
+                                    <p>What is Smart Switch(Fitting lamp) <a
+                                            target="_blank" rel="nofollow" href="https://google.com/">Fitting lamp</a>, a light fixture!</p>
+                                    <a target="_blank" rel="nofollow" href="https://google.com/">More about Smart Switch &rarr;</a>
                                 </div>
                             </div>
 
@@ -301,7 +309,7 @@
                         <div class="col-lg-6 mb-4">
 
                             <!-- Illustrations -->
-                            <div class="card shadow mb-4">
+                            <div class="card border-left-warning shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Smart Plug</h6>
                                 </div>
@@ -310,21 +318,23 @@
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                                             src="img/undraw_posting_photo.svg" alt="">
                                     </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">More About Smart Plug&rarr;</a>
+                                    <p>What is Smart plug?<a
+                                            target="_blank" rel="nofollow" href="https://google.com/">Plug</a></p>
+                                    <a target="_blank" rel="nofollow" href="https://google.com/">More About Smart Plug&rarr;</a>
                                 </div>
                             </div>
 
                             <!-- Approach -->
-                            <div class="card shadow mb-4">
+                            <div class="card border-left-dark shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">S-LUCY Website</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>S-LUCY makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="img/bg-masthead.jpg" alt="">
+                                    </div>
+                                    <p>S-LUCY (Smart Light Ultimate Control by Website) makes extensive use of Bootstrap 4 utility classes in order to reduce
                                         CSS bloat and poor page performance. Custom CSS classes are used to create
                                         custom components and custom utility classes.</p>
                                     <p class="mb-0">Before working with this theme, you should become familiar with the
@@ -362,6 +372,32 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+    {{-- RepeatModals --}}
+    <div class="modal fade" id="modalRepeat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Repeat Day</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                  <ul><input type="checkbox" value="Monday"><span class="ml-3">Monday</span></ul>
+                  <ul><input type="checkbox" value="Tuesday"><span class="ml-3">Tuesday</span></ul>
+                  <ul><input type="checkbox" value="Wednesday"><span class="ml-3">Wednesday</span></ul>
+                  <ul><input type="checkbox" value="Thursday"><span class="ml-3">Thursday</span></ul>
+                  <ul><input type="checkbox" value="Friday"><span class="ml-3">Friday</span></ul>
+                  <ul><input type="checkbox" value="Saturday"><span class="ml-3">Saturday</span></ul>
+                  <ul><input type="checkbox" value="Sunday"><span class="ml-3">Sunday</span></ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Reset</button>
+              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -376,7 +412,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="index.html">Logout</a>
+                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="{{route ('welcome')}}">Logout</a>
                 </div>
             </div>
         </div>
@@ -397,12 +433,20 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    {{-- Firebase --}}
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.2.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.2.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script>
+
+    </script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>

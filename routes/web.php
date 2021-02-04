@@ -23,6 +23,9 @@ Route::get('contact', [AuthController::class, 'contact'])->name('contact');
 Route::get('forgot-password', [AuthController::class, 'forgotpass'])->name('forgotpass');
 Route::get('dashboard', [MainController::class, 'index'])->name('dashboard');
 Route::get('regist-id', [MainController::class, 'registid'])->name('registid');
+Route::get('reset-password', [AuthController::class, 'resetpass'])->name('resetpass');
+Route::get('about', [AuthController::class, 'about'])->name('about');
+Route::get('landing-page', [AuthController::class, 'welcome'])->name('welcome');
 Route::get('sign-id', [MainController::class, 'signid'])->name('signid');
 Route::post('/create', [MainController::class, 'create'])->name('create');
-
+Route::get('profile', [MainController::class, 'profile'])->name('profile');

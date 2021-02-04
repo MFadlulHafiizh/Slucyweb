@@ -54,16 +54,16 @@
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Repeat Your New Password...">
                                         </div>
-                                        <a href="login.html" class="btn btn-user btn-block text-light" style="border: transparent;background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                        <a href="{{route('login')}}" class="btn btn-user btn-block text-light" style="border: transparent;background: linear-gradient(45deg, #49a09d, #5f2c82)">
                                             Claim New Password
                                         </a>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small text-gray-500" href="register.html">Create an Account!</a>
+                                        <a class="small text-gray-500" href="{{route('regist')}}">Create an Account!</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small text-gray-500" href="login.html">Already have an account? Login!</a>
+                                        <a class="small text-gray-500" href="{{route('login')}}">Already have an account? Login!</a>
                                     </div>
                                 </div>
                             </div>
@@ -78,11 +78,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
