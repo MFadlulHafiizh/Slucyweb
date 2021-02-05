@@ -22,8 +22,10 @@ class MainController extends Controller
         return view('profile');
     }
 
-    public function produk(Request $request){
-        $data = \DB::table('alat')->where('id_user', $request->id_user)->get();
+    public function product(Request $request){
+        $data = \DB::table('users')->select('product.slucy_id', 'product.power')
+        ->join('product', 'users.id', '=', 'product.id_user')
+        ->where('users.name', $request->name)->get();
 
         return response()->json([
             'product' => $data

@@ -87,12 +87,12 @@
                 </div>
             </li>
 
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -103,7 +103,7 @@
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2 text-light"><strong>Be strong</strong> With S-Lucy </p>
-                
+
             </div>
 
         </ul>
@@ -132,7 +132,7 @@
                         <li class="nav-item dropdown no-arrow" >
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                <span class="mr-2 d-none d-lg-inline text-light small">User Name</span>
+                                <span class="mr-2 d-none d-lg-inline text-light small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -212,7 +212,7 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary justify-text-center">Customize S-LUCY</h6>
-                                    
+
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -343,7 +343,7 @@
             <footer class="sticky-footer " style="background: linear-gradient (45deg, #49a09d, #5f2c82);">
                 <div class="container my-auto" >
                     <div class="copyright text-center my-auto" style="color:rgb(255, 250, 250);">
-                        <span>Copyright &copy; S-LUCY Website {{ $reformatDate }}</span>
+                        {{-- <span>Copyright &copy; S-LUCY Website {{ $reformatDate }}</span> --}}
                     </div>
                 </div>
             </footer>

@@ -208,7 +208,7 @@
                 <input type="email" class="form-control form-control-lg" style="opacity: 80%; border-radius:1.5rem" placeholder="Enter your email...">
               </div>
               <div class="col-12 col-md-3">
-                <a href="{{ route('regist')}}" type="submit" class="btn text-light btn-lg" style="border-radius: 1.5rem;border: transparent;background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">Sign up!</a>
+                <a href="{{ route('register')}}" type="submit" class="btn text-light btn-lg" style="border-radius: 1.5rem;border: transparent;background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">Sign up!</a>
               </div>
             </div>
           </form>
@@ -303,7 +303,7 @@
         }
     }
 </script>
-  
+
 </body>
 
 </html>

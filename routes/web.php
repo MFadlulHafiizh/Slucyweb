@@ -17,8 +17,10 @@ use App\Http\Controllers\{AuthController, MainController};
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('register', [AuthController::class, 'register'])->name('regist');
-Route::get('login', [AuthController::class, 'login'])->name('login');
+
+// Route::get('register', [AuthController::class, 'register'])->name('regist');
+// Route::get('auth', [AuthController::class, 'register'])->name('auth');
+// Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::get('contact', [AuthController::class, 'contact'])->name('contact');
 Route::get('forgot-password', [AuthController::class, 'forgotpass'])->name('forgotpass');
 Route::get('dashboard', [MainController::class, 'index'])->name('dashboard');
@@ -28,3 +30,7 @@ Route::get('about', [AuthController::class, 'about'])->name('about');
 Route::get('landing-page', [AuthController::class, 'welcome'])->name('welcome');
 Route::get('sign-id', [MainController::class, 'signid'])->name('signid');
 Route::get('profile', [MainController::class, 'profile'])->name('profile');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
