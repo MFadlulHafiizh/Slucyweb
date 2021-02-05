@@ -2,61 +2,33 @@
 
 namespace App\Http\Controllers;
 use Carbon\Carbon;
-use Kreait\Firebase;
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\ServiceAccount;
-use Kreait\Firebase\Database;
+
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-
     public function index(){
         $dateNow = Carbon::now();
         $reformatDate = $dateNow->format('j F Y h:i:s A');
-
-        $factory = (new Factory)->withServiceAccount(__DIR__.'/FirebaseKey.json')
-                                ->withDatabaseUri('https://slucyweb-default-rtdb.firebaseio.com/');
-
-        $database = $factory->createDatabase();
-
-        $reference = $database->getReference('Products');
-
-        $snapshot = $reference->getSnapshot();
-
-        $value = $snapshot->getValue();
-        return view('dashboard', compact('reformatDate', 'value'));
-
+        return view('dashboard', compact('reformatDate'));
     }
     public function registid(){
         return view('registid');
     }
-
     public function signid(){
         return view('signid');
     }
+    public function profile(){
+        return view('profile');
+    }
 
-    public function create(Request $request){
-        $i = 1;
+    public function product(Request $request){
+        $data = \DB::table('users')->select('product.slucy_id', 'product.power')
+        ->join('product', 'users.id', '=', 'product.id_user')
+        ->where('users.name', $request->name)->get();
 
-        $factory = (new Factory)->withServiceAccount(__DIR__.'/FirebaseKey.json')
-                                ->withDatabaseUri('https://slucyweb-default-rtdb.firebaseio.com/');
-
-        $database = $factory->createDatabase();
-
-        $ref = $database->getReference('Products');
-
-        $key = $ref->push()->getKey();
-
-        $status = $ref->getChild($key)->set([
-            'SlucyId' => $request->registid,
-            'product' => $request->product,
-            'dateRange' => $request->datetimes,
-            'power' => $request->status,
-            'status' => 'in'
+        return response()->json([
+            'product' => $data
         ]);
-
-        return redirect('dashboard')->with('status', 'Data');
-
     }
 }

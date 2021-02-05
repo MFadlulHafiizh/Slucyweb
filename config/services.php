@@ -30,15 +30,4 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'firebase' => [
-        'api_key' => 'AIzaSyB5h-RK7ScyJaZcloqr4fIFN-auFlIZjFE',
-        'auth_domain' => 'slucyweb.firebaseapp.com',
-        'database_url' => 'https://slucyweb-default-rtdb.firebaseio.com/',
-        'project_id' => 'slucyweb',
-        'storage_bucket' => 'slucyweb.appspot.com',
-        'messaging_sender_id' => '975252992596',
-        'app_id' => '1:975252992596:web:8fd44496bf76929813f3c1',
-        'measurement_id' => 'G-RHJV965KJS',
-    ],
-
 ];

@@ -20,90 +20,73 @@
         <link href="css/switch.css" rel="stylesheet"/>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-    <title>S-LUCY Website</title>
     <style>
-       html,
-        body {
-            height: 100%;
-        }
+        html,
+ 
+         body {
+             margin: 0;
+             background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82);
+             font-family: 'Poppins', sans-serif;
+             font-weight: 100;
+         }
+         .container {
+             position: absolute;
+             top: 45%;
+             left: 75%;
+             transform: translate(-50%, -50%);
+         }
+ 
+         table {
+             width: 500px;
+             border-collapse: collapse;
+             overflow: hidden;
+             box-shadow: 0 0 20px rgba(0,0,0,0.1);
+             border-radius: 1.5rem ;
+         }
+ 
+         th,
+         td {
+             padding: 15px;
+             background-color: rgba(255,255,255,0.2);
+             color: #fff;
+             text-align: center;
+             }
+         .td .btn {
+             background: linear-gradient (45deg,#0a002c, #0a002c,#0a002c , #5f2c82);
+         }
+         th {
+             text-align: center;
+             background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)
+         }
+         tr {background-color: rgba(255,255,255,0.3);}
+         .navbar-brand .img-logo{
+             width:70px;
+             height:70px;
+         }
+ 
+         .option{
+             width: 290px;
+             border-color: #B8F9FF;
+             background: transparent;
+             border-radius: 2rem;
+             color: white;
+         }   
+     </style>
 
-        body {
-            margin: 0;
-            background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 100;
-        }
+</head>
 
-        table {
-            width: 500px;
-            border-collapse: collapse;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 1.5rem ;
-        }
+<body id="page-top" >
 
-        th,
-        td {
-            padding: 15px;
-            background-color: rgba(255,255,255,0.2);
-            color: #fff;
-            text-align: center;
-            }
-        .td .btn {
-            background: linear-gradient (45deg,#0a002c, #0a002c,#0a002c , #5f2c82);
-        }
-        th {
-            text-align: center;
-            background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)
-        }
-        tr {background-color: rgba(255,255,255,0.3);}
-        .navbar-brand .img-logo{
-            width:70px;
-            height:70px;
-        }
-    </style>
-  </head>
-  <body>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Topbar -->
-    <nav class="navbar navbar-expand bg-white topbar mb-4 static-top shadow" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
-        <div class="navbar-brand d-flex">
-					<img src="img/ss.png" class="img-logo mr-3" alt="img-logo">
-				</div>
-        <!-- Sidebar Toggle (Topbar) -->
-        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-        </button>
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
 
-
-        <!-- Topbar Navbar -->
-        <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                    aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto w-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search"
-                                aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="sidebar-brand-icon">
+                    <img src="img/logo.png" style="width: 75px; height: 75 px;">
                 </div>
                 <div class="sidebar-brand-text mx-3" style="color: white">S-Lucy
                     <sub>Website</sub>
@@ -120,6 +103,13 @@
                     <span>Dashboard</span></a>
             </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -142,12 +132,12 @@
                 </div>
             </li>
 
-
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-
+            
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -158,52 +148,116 @@
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2 text-light"><strong>Be strong</strong> With S-Lucy </p>
-
+                
             </div>
 
         </ul>
-    </nav>
-    <!-- End of Topbar -->
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand bg-white topbar mb-4 static-top shadow" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82) ">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" style="color: rgb(255, 255, 255)">
+                        <i class="fa fa-bars" ></i>
+                    </button>
 
 
-  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Card -->
-    <div class="container">
-	<table align="center" class="mt-5">
-		<thead>
-			<tr>
-				<th >Regist your S-Lucy ID</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-                <td>
-                <form class="addProduct ml-auto" id="addProduct" method="POST" action="/create">
-                    @csrf
-                        <p style="position: inline">Product :
-                        <select name='product' style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">
-                        <option value='Switch'  style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">Switch (Fitting lamp)</option>
-                        <option value='Plug' style="width: 290px; border-color: #B8F9FF; background:transparent; border-radius: 2rem;">Plug</option>
-                        </select>
-                        </p>
-                        <input type="text" id="registid" name="registid" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem">
-                       <br>
-                        <input type="text" id="date" class="datetimes mt-3" name="datetimes" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem">
-                        <input type="hidden" name="status" value="off" class="status" id="status">
-                        <br>
-                        <button type="submit"  class="btn btn-dark mt-4 mb-1" id="submitProduct" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;">
-                            <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
-                            <span>Regist ID</span>
-                        </button>
-                    </form>
-                </td>
-			</tr>
-			<tr>
-		</tbody>
-	</table>
-</div>
- <!-- Logout Modal-->
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow" >
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                <span class="mr-2 d-none d-lg-inline text-light small">User Name</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
+                                <a class="dropdown-item" href="{{route('profile')}}">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-7">
+                        <div class="card mb-4" style="overflow: auto; background:transparent; border: transparent;">
+                           
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <table class="table table-hover" style="background: transparent;">
+                                    <thead>
+                                        <tr style="text-align: center;">
+                                            <td>Regist your S-Lucy ID</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <form class="product ml-auto" method="post">
+                                                    <p style="position: inline">Product :
+                                                    <select name='Product' class="option">
+                                                    <option value='Switch' style="color:black;">Switch (Fitting lamp)</option>
+                                                    <option value='Plug' style="color:black;">Plug</option>
+                                                    </select>
+                                                    </p>
+                                                </form>
+                                                <form>
+                                                    <input class="pl-2 pr-2" type="text" id="regist" name="regist" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem; color:white;">
+                                                </form>
+                                                <a href="{{route('dashboard')}}" class="btn btn-dark mt-4 mb-1" id="btn-toggle" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;"> 
+                                                    <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
+                                                    <span>Regist ID</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -232,9 +286,6 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     {{-- Firebase --}}
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -252,77 +303,4 @@
 
 </body>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    {{-- <script>
-        $(function() {
-          $('input[name="datetimes"]').daterangepicker({
-            timePicker: true,
-            startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour'),
-            locale: {
-              format: 'M/DD hh:mm A'
-            }
-          });
-        });
-        </script> --}}
-    <script>
-        $(function() {
-          $('input[name="datetimes"]').daterangepicker({
-            timePicker: true,
-            startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour'),
-            locale: {
-              format: 'hh:mm A'
-            }
-          });
-        });
-        </script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-
-      <!-- TODO: Add SDKs for Firebase products that you want to use
-          https://firebase.google.com/docs/web/setup#available-libraries -->
-      <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
-
-
-      <script>
-          var config = {
-              apiKey: "{{ config('services.firebase.api_key') }}",
-              authDomain: "{{ config('services.firebase.auth_domain') }}",
-              databaseURL: "{{ config('services.firebase.database_url') }}",
-              projectId: "{{ config('services.firebase.project_id') }}",
-              storageBucket: "{{ config('services.firebase.storage_bucket') }}",
-              messagingSenderId: "{{ config('services.firebase.messaging_sender_id') }}",
-              appId: "{{ config('services.firebase.app_id') }}",
-              measurementId: "{{ config('services.firebase.measurement_id') }}"
-          };
-          firebase.initializeApp(config);
-          firebase.analytics();
-          var database = firebase.database();
-          var lastIndex = 0;
-
-                    // Add Data
-            $('#submitProduct').on('click', function () {
-            var values = $("#addProduct").serializeArray();
-            var regis = values[0].value;
-            var name = values[1].value;
-            var date = values[2].value;
-            var ID = lastIndex + 1;
-            console.log(values);
-            firebase.database().ref('SlucyWeb/' + ID).set({
-            slucyId: regis,
-            name: name,
-            date:date
-            });
-            // Reassign lastID value
-            lastIndex = ID;
-            $("#addProduct input").val("");
-            });
-      </script>
-
-  </body>
 </html>

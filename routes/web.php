@@ -27,5 +27,4 @@ Route::get('reset-password', [AuthController::class, 'resetpass'])->name('resetp
 Route::get('about', [AuthController::class, 'about'])->name('about');
 Route::get('landing-page', [AuthController::class, 'welcome'])->name('welcome');
 Route::get('sign-id', [MainController::class, 'signid'])->name('signid');
-Route::post('/create', [MainController::class, 'create'])->name('create');
 Route::get('profile', [MainController::class, 'profile'])->name('profile');
