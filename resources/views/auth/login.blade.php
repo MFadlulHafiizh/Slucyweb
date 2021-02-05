@@ -41,15 +41,32 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-light mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    @if (session('status'))
+                                        <div class="mb-4 font-medium text-sm text-green-600">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
+
+                                    <form class="user" method="POST" action="{{route('login')}}">
+                                        @csrf
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                         @enderror
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="email"  @error('email') is-invalid @enderror" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Enter Email Address..." name="email">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" @error('password') is-invalid @enderror" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password" name="password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -58,16 +75,23 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="{{ route('dashboard') }}" class="btn btn-user btn-block text-light" style="border:transparent ;background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                        <button type="submit"  class="btn btn-user btn-block text-light" style="border:transparent ;background: linear-gradient(45deg, #49a09d, #5f2c82)">
                                             Login
-                                        </a>
+                                        </button>
+                                        {{-- <a href="{{ route('dashboard') }}" class="btn btn-user btn-block text-light" style="border:transparent ;background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                                            Login
+                                        </a> --}}
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small text-gray-500" href="{{ route('forgotpass')}}">Forgot Password?</a>
+                                        @if (Route::has('password.request'))
+                                    <a class="btn btn-link small text-gray-500" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                     @endif
                                     </div>
                                     <div class="text-center">
-                                        <a class="small text-gray-500" href="{{ route('regist')}}">Create an Account!</a>
+                                        <a class="small text-gray-500" href="{{ route('register')}}">Create an Account!</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small text-gray-500" href="{{ url()->previous()}}">go back</a>

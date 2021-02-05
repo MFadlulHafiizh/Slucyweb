@@ -18,8 +18,9 @@ class CreateProductTable extends Migration
             $table->unsignedBigInteger('id_user');
             $table->string('slucy_id');
             $table->string('product_name');
-            $table->time('timer_set');
-            $table->string('days');
+            $table->time('timer_set')->nullable();
+            $table->time('timer_until')->nullable();
+            $table->string('days')->nullable();
             $table->enum('power', ['On', 'Off']);
             $table->enum('action', ['In', 'Out']);
             $table->timestamps();

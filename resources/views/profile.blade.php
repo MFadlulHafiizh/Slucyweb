@@ -19,11 +19,34 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/lq7e09nr1zvfkk9rgymrak6zoskkyv2dtna24qw94jhuxh22/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
 <body class="bg-gradient" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">
-
+    @if (session('edit'))
+    <script>
+            swal({
+                icon: 'info',
+                title: 'Data berhasil diubah!',
+            });
+    </script>
+    @endif
+    @if (session('error'))
+    <script>
+            swal({
+                icon: 'danger',
+                title: 'Data gagal diubah!',
+            });
+    </script>
+    @endif
+    <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -44,7 +67,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" style="color:white" href="{{route('dashboard')}}">
+                <a class="nav-link" style="color:white " href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -67,23 +90,23 @@
                 <div id="collapseTwo" class="collapse " style="color:rgb(185, 185, 185);" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="py-2 collapse-inner rounded " style=" background: linear-gradient(45deg, #49a09d, #5f2c82)">
                         <h6 class="collapse-header">Your S-LUCY ID:</h6>
-                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{route('registid')}}">
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{ route('registid') }}">
                             <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
                             Regist ID
                         </a>
-                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{route('signid')}}">
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{ route('signid') }}">
                             <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
                         Sign ID </a>
                     </div>
                 </div>
             </li>
 
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -94,7 +117,7 @@
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2 text-light"><strong>Be strong</strong> With S-Lucy </p>
-                
+
             </div>
 
         </ul>
@@ -123,19 +146,24 @@
                         <li class="nav-item dropdown no-arrow" >
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                <span class="mr-2 d-none d-lg-inline text-light small">User Name</span>
+                                <span class="mr-2 d-none d-lg-inline text-light small">{{ Auth::user()->name }}</span>
+                                @if (empty(Auth::user()->foto))
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                src="img/undraw_profile.svg">
+                                @else
+                                <img class="img-profile rounded-circle"
+                                src="{{ Auth::user()->foto }}">
+                                @endif
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
-                                <a class="dropdown-item" href="{{route('profile')}}">
+                                <a class="dropdown-item" href="profile">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{route ('welcome')}}" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -160,8 +188,15 @@
                         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="{{route ('welcome')}}">Logout</a>
-                        </div>
+                            <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                    </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                        </form></div>
                     </div>
                 </div>
                 </div>
@@ -177,42 +212,49 @@
                 <div class="text-center">
                     <h1 class="h4 text-light mt-3 mb-4">Edit Your Profile</h1>
                 </div>
-                <form class="user">
-                    <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                placeholder="First Name">
+                <form class="user" runat="server" action="{{ route('editProfile') }}" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
+                     @csrf
+
+                    <div class="form-group">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <label for="exampleFirstName" class="ml-3 text-white">Nama : </label>
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                placeholder="Last Name">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="text" name="name" class="form-control form-control-user" id="exampleFirstName"
+                                placeholder="First Name" value="{{ old('name', $user->name) }}">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                            placeholder="Email Address">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <label for="exampleFirstName" class="ml-3 text-white">Email : </label>
+                        </div>
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                        <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                            placeholder="Email Address" value="{{ old('email', $user->email) }}">
+                        </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="password" class="form-control form-control-user"
-                                id="exampleInputPassword" placeholder="Password">
+                    <div class="form-group">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <a href="editPassword" class="text-white ml-3" style="font-size: 16pt">Edit Password <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control form-control-user"
-                                id="exampleRepeatPassword" placeholder="Repeat Password">
-                        </div>
+                    </div>
                     <div class="row justify-content-center">
                         <div class="col-sm-6 mt-4">
-                            <img class="img-fluid mb-2 w-75 ml-3 d-block" src="img/holder.png" style="border-radius: 1rem;">
-                        </div>
+                            @if (empty($user->foto))
+                            <img class="img-fluid mb-2 w-75 ml-3 d-block" src="img/holder.png" id="blah" alt="your image" style="border-radius: 1rem;">
+                            @else
+                            <img class="img-fluid mb-2 w-75 ml-3 d-block" src="{{ asset($user->foto) }}" id="blah" alt="your image" style="border-radius: 1rem;">
+                            @endif
+                            </div>
                         <div class="col-sm-12 mt-2 ml-5 text-center" >
-                            <input type="file" class="form text-light" style=" border-color:white" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            <input type="file" name="foto" class="form text-light" style=" border-color:white"  accept=".png, .jpg, .jpeg" id="imgInp" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                         </div>
                     </div>
                     </div>
-                        <a href="#" class="btn btn-user btn-block text-light" style="border:1px solid white; background: linear-gradient(45deg, #49a09d, #5f2c82)">
+                        <button type="submit" class="btn btn-user btn-block text-light" style="border:1px solid white; background: linear-gradient(45deg, #49a09d, #5f2c82)">
                             Save
-                        </a>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -226,9 +268,28 @@
 
     <!-- Core plugin JavaScript-->
     <script src="jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+            }
+
+            $("#imgInp").change(function() {
+            readURL(this);
+            });
+    </script>
 
 </body>
 

@@ -58,7 +58,15 @@
   <nav class="navbar navbar-expand-md sticky-top" id="navbar">
     <div class="container">
       <a class="navbar-brand" style="color: rgb(255, 255, 255)" href="#">S-LUCY</a>
-      <a class="btn btn-custom" href="{{ route('login')}}">Sign In</a>
+      @guest
+      <li class="nav-item">
+          <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+      </li>
+     @else
+      <li class="nav-item dropdown">
+        <a class="nav-link text-white" href="{{ route('home') }}">Home</a>
+      </li>
+  @endguest
     </div>
   </nav>
 
@@ -208,7 +216,7 @@
                 <input type="email" class="form-control form-control-lg" style="opacity: 80%; border-radius:1.5rem" placeholder="Enter your email...">
               </div>
               <div class="col-12 col-md-3">
-                <a href="{{ route('regist')}}" type="submit" class="btn text-light btn-lg" style="border-radius: 1.5rem;border: transparent;background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">Sign up!</a>
+                <a href="{{ route('register')}}" type="submit" class="btn text-light btn-lg" style="border-radius: 1.5rem;border: transparent;background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">Sign up!</a>
               </div>
             </div>
           </form>
@@ -303,7 +311,7 @@
         }
     }
 </script>
-  
+
 </body>
 
 </html>

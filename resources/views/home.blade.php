@@ -18,6 +18,13 @@
         rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
         <link href="css/switch.css" rel="stylesheet"/>
+        <script src="https://cdn.tiny.cloud/1/lq7e09nr1zvfkk9rgymrak6zoskkyv2dtna24qw94jhuxh22/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <style>
@@ -31,7 +38,30 @@
 </head>
 
 <body id="page-top" >
-
+    @if (session('status'))
+    <script>
+            swal({
+                icon: 'info',
+                title: 'Produk berhasil ditambahkan!',
+            });
+    </script>
+    @endif
+    @if (session('in'))
+    <script>
+            swal({
+                icon: 'info',
+                title: 'Status Produk berhasil dimasukan!',
+            });
+    </script>
+    @endif
+    @if (session('out'))
+    <script>
+            swal({
+                icon: 'info',
+                title: 'Status produk berhasil dikeluarkan!',
+            });
+    </script>
+    @endif
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -53,9 +83,10 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" style="color:white ">
+                <a class="nav-link" style="color:white" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -76,23 +107,23 @@
                 <div id="collapseTwo" class="collapse " style="color:rgb(185, 185, 185);" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="py-2 collapse-inner rounded " style=" background: linear-gradient(45deg, #49a09d, #5f2c82)">
                         <h6 class="collapse-header">Your S-LUCY ID:</h6>
-                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{route('registid')}}">
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{ route('registid') }}">
                             <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
                             Regist ID
                         </a>
-                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{route('signid')}}">
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{ route('signid') }}">
                             <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
                         Sign ID </a>
                     </div>
                 </div>
             </li>
 
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -103,7 +134,7 @@
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2 text-light"><strong>Be strong</strong> With S-Lucy </p>
-                
+
             </div>
 
         </ul>
@@ -132,19 +163,24 @@
                         <li class="nav-item dropdown no-arrow" >
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                <span class="mr-2 d-none d-lg-inline text-light small">User Name</span>
+                                <span class="mr-2 d-none d-lg-inline text-light small">{{ Auth::user()->name }}</span>
+                                @if (empty(Auth::user()->foto))
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                src="img/undraw_profile.svg">
+                                @else
+                                <img class="img-profile rounded-circle"
+                                src="{{ Auth::user()->foto }}">
+                                @endif
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
-                                <a class="dropdown-item" href="{{route('profile')}}">
+                                <a class="dropdown-item" href="profile">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{route ('welcome')}}" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -175,7 +211,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Switch Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $switch }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="far fa-sun fa-2x" style="color: #d8d8d8"></i>
@@ -193,7 +229,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Plug Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $plug }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-plus-square fa-2x" style="color: #d8d8d8"></i>
@@ -212,7 +248,7 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary justify-text-center">Customize S-LUCY</h6>
-                                    
+
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -228,35 +264,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach (($collection) as $item) --}}
+                                            @foreach ($value as $item)
                                             <tr style="text-align: center;">
-                                                <td>1</td>
-                                                <td>13022</td>
-                                                <td>Plug</td>
-                                                <td>08.00 - 12.00</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->slucy_id }}</td>
+                                                <td>{{ $item->product_name }}</td>
+                                                <td>{{ $item->timer_set }} - {{ $item->timer_until }}</td>
                                                 <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
-                                                <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
-                                                <td><button type="button" class="btn btn-link text-dark">Out</button><td>
+                                                <td> <label class="switch"> <input type="checkbox"><span class="slider round"></span> </label></td>
+                                                <td><form action="/out/{{ $item->id }}" method="POST">
+                                                    @method('PUT')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-link text-dark" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Delete Email History?" onclick="return confirm('Apakah anda yakin ingin Mengubah status data ini?')" onclick="showAlert()">Out</button>
+                                                </form><td>
                                             </tr>
-                                            <tr style="text-align: center;">
-                                                <td>2</td>
-                                                <td>13031</td>
-                                                <td>Plug</td>
-                                                <td>09.30 - 12.00</td>
-                                                <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
-                                                <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
-                                                <td><button type="button" class="btn btn-link text-dark">Out</button><td>
-                                            </tr>
-                                            <tr style="text-align: center;">
-                                                <td>3</td>
-                                                <td>13123</td>
-                                                <td>switch</td>
-                                                <td>10.00 - 15.00</td>
-                                                <td><button class="btn btnRound " type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
-                                                <td> <label class="switch"> <input type="checkbox"> <span class="slider round"></span> </label></td>
-                                                <td><button type="button" class="btn btn-link text-dark">Out</button><td>
-                                            </tr>
-                                            {{-- @endforeach --}}
+                                            @endforeach
                                         </tbody>
                                       </table>
                                 </div>
@@ -343,7 +365,7 @@
             <footer class="sticky-footer " style="background: linear-gradient (45deg, #49a09d, #5f2c82);">
                 <div class="container my-auto" >
                     <div class="copyright text-center my-auto" style="color:rgb(255, 250, 250);">
-                        <span>Copyright &copy; S-LUCY Website {{ $reformatDate }}</span>
+                        {{-- <span>Copyright &copy; S-LUCY Website {{ $reformatDate }}</span> --}}
                     </div>
                 </div>
             </footer>
@@ -400,7 +422,15 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="{{route ('welcome')}}">Logout</a>
+                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                    </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                        </form>
                 </div>
             </div>
         </div>

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AuthController, MainController};
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +16,19 @@ use App\Http\Controllers\{AuthController, MainController};
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('register', [AuthController::class, 'register'])->name('regist');
-Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::get('contact', [AuthController::class, 'contact'])->name('contact');
-Route::get('forgot-password', [AuthController::class, 'forgotpass'])->name('forgotpass');
-Route::get('dashboard', [MainController::class, 'index'])->name('dashboard');
-Route::get('regist-id', [MainController::class, 'registid'])->name('registid');
-Route::get('reset-password', [AuthController::class, 'resetpass'])->name('resetpass');
-Route::get('about', [AuthController::class, 'about'])->name('about');
-Route::get('landing-page', [AuthController::class, 'welcome'])->name('welcome');
-Route::get('sign-id', [MainController::class, 'signid'])->name('signid');
-Route::get('profile', [MainController::class, 'profile'])->name('profile');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('registid', 'HomeController@registid')->name('registid');
+Route::get('signid', 'HomeController@signid')->name('signid');
+
+Route::get('profile', 'HomeController@profile')->name('profile');
+Route::get('editPassword', 'HomeController@editPassword')->name('editPassword');
+Route::post('store', 'HomeController@store')->name('store');
+
+Route::put('/out/{id}', 'HomeController@out')->name('out');
+Route::put('/in', 'HomeController@in')->name('in');
+Route::put('/editProfile', 'HomeController@editProfile')->name('editProfile');
+Route::put('/updatePassword', 'HomeController@updatePassword')->name('updatePassword');
+

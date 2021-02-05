@@ -18,11 +18,18 @@
         rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
         <link href="css/switch.css" rel="stylesheet"/>
+        <script src="https://cdn.tiny.cloud/1/lq7e09nr1zvfkk9rgymrak6zoskkyv2dtna24qw94jhuxh22/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <style>
         html,
- 
+
          body {
              margin: 0;
              background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82);
@@ -35,7 +42,7 @@
              left: 75%;
              transform: translate(-50%, -50%);
          }
- 
+
          table {
              width: 500px;
              border-collapse: collapse;
@@ -43,7 +50,7 @@
              box-shadow: 0 0 20px rgba(0,0,0,0.1);
              border-radius: 1.5rem ;
          }
- 
+
          th,
          td {
              padding: 15px;
@@ -63,22 +70,22 @@
              width:70px;
              height:70px;
          }
- 
+
          .option{
              width: 290px;
              border-color: #B8F9FF;
              background: transparent;
              border-radius: 2rem;
              color: white;
-         }   
+         }
      </style>
 
 </head>
 
 <body id="page-top" >
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+     <!-- Page Wrapper -->
+     <div id="wrapper">
 
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
@@ -98,7 +105,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" style="color:white" href="{{ route('dashboard')}}">
+                <a class="nav-link" style="color:white " href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -113,31 +120,31 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed-expand" style="color:rgb(255, 250, 250);" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" style="color:rgb(255, 250, 250);" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
-                <div id="collapseTwo" class="collapse show" style="color:rgb(185, 185, 185);" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse " style="color:rgb(185, 185, 185);" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="py-2 collapse-inner rounded " style=" background: linear-gradient(45deg, #49a09d, #5f2c82)">
                         <h6 class="collapse-header">Your S-LUCY ID:</h6>
-                        <a class="collapse-item active" style="color:rgb(255, 255, 255);">
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{ route('registid') }}">
                             <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
                             Regist ID
                         </a>
-                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{route('signid')}}">
+                        <a class="collapse-item" style="color:rgb(255, 255, 255);" href="{{ route('signid') }}">
                             <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
                         Sign ID </a>
                     </div>
                 </div>
             </li>
 
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -148,7 +155,7 @@
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2 text-light"><strong>Be strong</strong> With S-Lucy </p>
-                
+
             </div>
 
         </ul>
@@ -177,19 +184,24 @@
                         <li class="nav-item dropdown no-arrow" >
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                <span class="mr-2 d-none d-lg-inline text-light small">User Name</span>
+                                <span class="mr-2 d-none d-lg-inline text-light small">{{ Auth::user()->name }}</span>
+                                @if (empty(Auth::user()->foto))
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                src="img/undraw_profile.svg">
+                                @else
+                                <img class="img-profile rounded-circle"
+                                src="{{ Auth::user()->foto }}">
+                                @endif
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown" style="background: linear-gradient (45deg, #49a09d, #5f2c82)">
-                                <a class="dropdown-item" href="{{route('profile')}}">
+                                <a class="dropdown-item" href="profile">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -205,7 +217,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-7">
                         <div class="card mb-4" style="overflow: auto; background:transparent; border: transparent;">
-                           
+
                             <!-- Card Body -->
                             <div class="card-body">
                                 <table class="table table-hover" style="background: transparent;">
@@ -217,25 +229,26 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <form class="product ml-auto" method="post">
+                                                <form action="store" method="POST" class="product ml-auto">
+                                                    @csrf
                                                     <p style="position: inline">Product :
-                                                    <select name='Product' class="option">
+                                                    <select required name='product' class="option">
                                                     <option value='Switch' style="color:black;">Switch (Fitting lamp)</option>
                                                     <option value='Plug' style="color:black;">Plug</option>
                                                     </select>
                                                     </p>
-                                                </form>
-                                                <form>
-                                                    <input class="pl-2 pr-2" type="text" id="regist" name="regist" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem; color:white;">
-                                                </form>
-                                                <a href="{{route('dashboard')}}" class="btn btn-dark mt-4 mb-1" id="btn-toggle" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;"> 
+                                                    <input type="hidden" name="userid" value="{{ Auth::user()->id }}">
+                                                    <input required class="" type="text" id="regist" name="regist" style="padding:3px 2px ;width:370px; border-color: #B8F9FF; background-color:transparent; border-radius: 2rem; color:white;">
+                                                    <br>
+                                                    <button type="submit" class="btn btn-dark mt-4 mb-1" style="border-radius: 3rem; color: #B8F9FF; border-radius: 3rem; opacity: 70%;">
                                                     <i class="fas fa-fingerprint " style="color: #B1F8FF"></i>
                                                     <span>Regist ID</span>
-                                                </a>
+                                                </button>
+                                            </form>
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table>   
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -270,7 +283,15 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="{{route('welcome')}}">Logout</a>
+                    <a class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                    </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                        </form>
                 </div>
             </div>
         </div>
