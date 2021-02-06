@@ -170,6 +170,20 @@ class HomeController extends Controller
             // return redirect()->back()->with('message','Rasanya anjayani');
             return json_encode(array('statusCode'=>200));
         }
+        public function up(Request $request){
+            $product = Product::find($request->id);
+            $ironmen = 2;
+            if($request->power == "Off"){
+                $ironmen = 1;
+            }
+            else{
+                $ironmen = 2;
+            }
+            $product->power = $ironmen;
+            $product->save();
+            // return redirect()->back()->with('message','Rasanya anjayani');
+            return redirect()->back();
+        }
         public function getPower(Request $request){
             $product = Product::find($request->id);
             return json_encode(array('statusCode'=>200, 'power'=>$product->power));
@@ -185,6 +199,14 @@ class HomeController extends Controller
             $status->update($data);
 
             return redirect()->back()->with('set', 'set');
+        }
+        public function day(Request $request){
+            $status = Product::findorfail($request->id);
+            $input = $request->all();
+            $input['days'] = $request->input('day');
+            $input['days'] = implode(", ",$input['days']);
+            $status->update($input);
+            return redirect()->back();
         }
         public function testTimeUpdate(Request $request, $id){
             $timesetData = \DB::table('product')->select('product.timer_set')->where('id', $id)->first();
