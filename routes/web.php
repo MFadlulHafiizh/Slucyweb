@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('registid', 'HomeController@registid')->name('registid');
 Route::get('signid', 'HomeController@signid')->name('signid');
 Route::get('/getpower', 'HomeController@getPower')->name('getpower');
+Route::put('/setTime/{id}', 'HomeController@setTime')->name('setTime');
 
 Route::get('profile', 'HomeController@profile')->name('profile');
 Route::get('editPassword', 'HomeController@editPassword')->name('editPassword');

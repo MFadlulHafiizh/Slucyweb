@@ -18,6 +18,8 @@
         rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
         <link href="css/switch.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/timepicker.css'" />
+        <script src="js/timepicker.js" defer></script>
         <script src="https://cdn.tiny.cloud/1/lq7e09nr1zvfkk9rgymrak6zoskkyv2dtna24qw94jhuxh22/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
@@ -271,7 +273,17 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->slucy_id }}</td>
                                                 <td>{{ $item->product_name }}</td>
-                                                <td>{{ $item->timer_set }} - {{ $item->timer_until }}</td>
+                                                <td>
+                                                    <form action="/setTime/{{ $item->id }}" method="POST" class="time">
+                                                        @method('PUT')
+                                                        @csrf
+                                                        <div class="form-inline">
+                                                        <input class="form-control picker" id="set" type="text" value="{{ $item->timer_set }} " name="timer_set"/>
+                                                        <input class="form-control picker" id="until" type="text" value="{{ $item->timer_until }}" name="timer_until"/>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-secondary my-2 my-sm-0 set">Set</button>
+                                                    </form>
+                                                </td>
                                                 <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td>
                                                     @php
@@ -354,6 +366,30 @@
                                     });
                                 });
                             });
+                        </script>
+                        <script>
+                            $(function() {
+                                $('input[name="timer_set"]').timepicker({
+                                    timePicker: true,
+                                    ampmText: { am:"am", pm:"pm", AM:"AM", PM:"PM" },
+                                    hourHeaderText:"hour",
+                                    minHeaderText:"min",
+                                    okButtonText:"&#10004;",
+                                    cancelButtonText:"&#10005;"
+                                });
+                            });
+
+                            $(function() {
+                                $('input[name="timer_until"]').timepicker({
+                                    timePicker: true,
+                                    ampmText: { am:"am", pm:"pm", AM:"AM", PM:"PM" },
+                                    hourHeaderText:"hour",
+                                    minHeaderText:"min",
+                                    okButtonText:"&#10004;",
+                                    cancelButtonText:"&#10005;"
+                                });
+                            });
+
                         </script>
                     <!-- Content Row -->
                     <div class="row">

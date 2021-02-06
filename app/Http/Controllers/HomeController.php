@@ -174,6 +174,18 @@ class HomeController extends Controller
             $product = Product::find($request->id);
             return json_encode(array('statusCode'=>200, 'power'=>$product->power));
         }
+        public function setTime($id, Request $request){
+            $status = Product::findorfail($id);
+
+            $data = [
+                'timer_set' => $request->timer_set,
+                'timer_until' => $request->timer_until
+            ];
+
+            $status->update($data);
+
+            return redirect()->back()->with('set', 'set');
+        }
         public function testTimeUpdate(Request $request, $id){
             $timesetData = \DB::table('product')->select('product.timer_set')->where('id', $id)->first();
             $timeuntilData = \DB::table('product')->select('product.time_until')->where('id', $id)->first();
