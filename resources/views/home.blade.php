@@ -278,28 +278,45 @@
                                                         @method('PUT')
                                                         @csrf
                                                         <div class="form-inline">
-                                                        <input class="form-control picker" id="set" type="text" value="{{ $item->timer_set }} " name="timer_set"/>
-                                                        <input class="form-control picker" id="until" type="text" value="{{ $item->timer_until }}" name="timer_until"/>
+                                                        <input class="form-control picker col-xs-2" id="set" type="text" value="{{ $item->timer_set }} " name="timer_set"/>
+                                                        <input class="form-control picker col-xs-2" id="until" type="text" value="{{ $item->timer_until }}" name="timer_until"/>
                                                         </div>
                                                         <button type="submit" class="btn btn-secondary my-2 my-sm-0 set">Set</button>
                                                     </form>
                                                 </td>
-                                                <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
+                                                <td><button class="btn btnRound btnRepeat" type="button" data-toggle="modal" data-target="#modalRepeat" data-id="{{$item->id}}">Repeat</button></td>
+                                                <script type="text/javascript">
+                                                $(function(){
+                                                    $('.btnRepeat').on("click",function(e){
+                                                        e.preventDefault();
+                                                        var id = $(this).parent().parent().children()[0].innerHTML;
+                                                        var tr = $(this).parent().parent();
+                                                        document.getElementById('gg').value = id;
+                                                        document.getElementById('geming').action = "/day/"+id;
+                                                    });
+                                                });
+                                                </script>
                                                 <td>
                                                     @php
                                                         $pw;
                                                         $bt;
                                                         if ($item->power == "On") {
+                                                                $pw = "On";
+                                                                $bt = "btn-success";
+                                                        }
+                                                        else {
                                                             $pw = "Off";
                                                             $bt = "btn-danger";
                                                         }
-                                                        else {
-                                                            $pw = "On";
-                                                            $bt = "btn-success";
-                                                        }
                                                     @endphp
-                                                    <input type="button" value="<?=$pw?>" id="onoff" onclick="onoff();" class="btn <?=$bt?> ">
-                                                    <input type="hidden" name="id" value="{{$item->id}}" id="merah">
+                                                    {{-- <input type="button" value="<?=$pw?>" id="onoff" onclick="onoff();" class="btn <?=$bt?> "> --}}
+                                                    <form action="/up/{{$item->id}}" method="POST">
+                                                        @method('PUT')
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{$item->id}}" id="merah">
+                                                        <input type="hidden" name="power" value="{{$item->power}}">
+                                                        <button type="submit" value="<?=$pw?>" class="btn <?=$bt?> "><?=$pw?></button>
+                                                    </form>
                                                 </td>
                                                 <td><form action="/out/{{ $item->id }}" method="POST">
                                                     @method('PUT')
@@ -316,14 +333,14 @@
                     </div>
                     <script type="text/javascript">
                         function onoff(){
-                          currentvalue = document.getElementById('onoff').value;
+                          currentvalue = document.getElementsByClassName('btnswitch').value;
                           if(currentvalue == "Off"){
-                            var ele = document.getElementById("onoff");
+                            var ele = document.getElementsByClassName("btnswitch");
                             ele.value="On";
                             ele.classList.remove("btn-danger");
                             ele.classList.add("btn-success");
                           }else{
-                            var ment = document.getElementById("onoff");
+                            var ment = document.getElementsByClassName("btnswitch");
                             ment.value="Off";
                             ment.classList.remove("btn-success");
                             ment.classList.add("btn-danger");
@@ -332,17 +349,17 @@
                         </script>
                         <script type="text/javascript">
                             $(document).ready(function(){
-                                $("#onoff").click(function(e) {
+                                $(".btnswitch").click(function(e) {
                                     e.preventDefault();
                                     var url="{{route('switch')}}";
-                                    var id=$("#merah").val();
-                                    var buton = $("#onoff").val();
+                                    var id = $(this).parent().parent().children()[0].innerHTML;
+                                    var buton = $(".btnswitch").val();
                                     var power;
                                     if (buton === "Off") {
-                                        power = 1;
+                                        power = 2;
                                     }
                                     else{
-                                        power =2;
+                                        power =1;
                                     }
                                     $.ajax({
                                         url: url,
@@ -496,28 +513,27 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-                  <ul><input type="checkbox" value="Monday"><span class="ml-3">Monday</span></ul>
-                  <ul><input type="checkbox" value="Tuesday"><span class="ml-3">Tuesday</span></ul>
-                  <ul><input type="checkbox" value="Wednesday"><span class="ml-3">Wednesday</span></ul>
-                  <ul><input type="checkbox" value="Thursday"><span class="ml-3">Thursday</span></ul>
-                  <ul><input type="checkbox" value="Friday"><span class="ml-3">Friday</span></ul>
-                  <ul><input type="checkbox" value="Saturday"><span class="ml-3">Saturday</span></ul>
-                  <ul><input type="checkbox" value="Sunday"><span class="ml-3">Sunday</span></ul>
-                <input type="text" id="timefrom">
-                <input type="text" id="timeto">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Reset</button>
-              <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Save changes</button>
+                <form method="POST" action="" id="geming">
+                    @csrf
+                    <input type="hidden" value="" name="id" id="gg">
+                    <ul><input type="checkbox" value="Monday" name="day[]"><span class="ml-3">Monday</span></ul>
+                    <ul><input type="checkbox" value="Tuesday" name="day[]"><span class="ml-3">Tuesday</span></ul>
+                    <ul><input type="checkbox" value="Wednesday" name="day[]"><span class="ml-3">Wednesday</span></ul>
+                    <ul><input type="checkbox" value="Thursday" name="day[]"><span class="ml-3">Thursday</span></ul>
+                    <ul><input type="checkbox" value="Friday" name="day[]"><span class="ml-3">Friday</span></ul>
+                    <ul><input type="checkbox" value="Saturday" name="day[]"><span class="ml-3">Saturday</span></ul>
+                    <ul><input type="checkbox" value="Sunday" name="day[]"><span class="ml-3">Sunday</span></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Reset</button>
+                    <button type="submit" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Save changes</button>
+                </form>
             </div>
           </div>
         </div>
     </div>
-    <script>
-        $('#timefrom').timepicker({ 'timeFormat': 'H:i:s' });
-        $('#timeto').timepicker({ 'timeFormat': 'h:i A' });
-    </script>
+
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">

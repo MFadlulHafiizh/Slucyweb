@@ -24,6 +24,8 @@ Route::get('registid', 'HomeController@registid')->name('registid');
 Route::get('signid', 'HomeController@signid')->name('signid');
 Route::get('/getpower', 'HomeController@getPower')->name('getpower');
 Route::put('/setTime/{id}', 'HomeController@setTime')->name('setTime');
+Route::put('/up/{id}', 'HomeController@up')->name('up');
+Route::post('/day/{id}', 'HomeController@day')->name('day');
 
 Route::get('profile', 'HomeController@profile')->name('profile');
 Route::get('editPassword', 'HomeController@editPassword')->name('editPassword');
