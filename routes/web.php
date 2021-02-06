@@ -22,10 +22,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('registid', 'HomeController@registid')->name('registid');
 Route::get('signid', 'HomeController@signid')->name('signid');
+Route::get('/getpower', 'HomeController@getPower')->name('getpower');
 
 Route::get('profile', 'HomeController@profile')->name('profile');
 Route::get('editPassword', 'HomeController@editPassword')->name('editPassword');
 Route::post('store', 'HomeController@store')->name('store');
+Route::post('/switch', 'HomeController@switch')->name('switch');
 
 Route::put('/out/{id}', 'HomeController@out')->name('out');
 Route::put('/in', 'HomeController@in')->name('in');

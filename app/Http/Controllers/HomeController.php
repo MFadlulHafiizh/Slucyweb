@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Product;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,6 @@ class HomeController extends Controller
         $reformatDate = $dateNow->format('j F Y h:i:s A');
         return view('home', compact('value', 'switch', 'plug'));
     }
-
     public function registid(){
         return view('registid');
     }
@@ -52,68 +52,68 @@ class HomeController extends Controller
     public function profile(Request $request){
         return view('profile', [
             'user' => $request->user()
-        ]);
-    }
-
-
-    public function editProfile(Request $request){
-
-        if ($request->has('foto')){
-            $foto    = $request->foto;
-            $newFoto= time().$foto->getClientOriginalName();
-
-            $foto = $request->file('foto');
-            $tujuan_upload = 'uploads';
-            $foto->move($tujuan_upload,$newFoto);
-
-            $data_user = [
-                'name'   => $request->name,
-                'email'   => $request->email,
-                'foto'    => 'uploads/'.$newFoto
-            ];
-        }
-        else{
-
-            $data_user = [
-                'name'   => $request->name,
-                'email'   => $request->email
-            ];
-
+            ]);
         }
 
-        $status = $request->user()->update($data_user);
+
+        public function editProfile(Request $request){
+
+            if ($request->has('foto')){
+                $foto    = $request->foto;
+                $newFoto= time().$foto->getClientOriginalName();
+
+                $foto = $request->file('foto');
+                $tujuan_upload = 'uploads';
+                $foto->move($tujuan_upload,$newFoto);
+
+                $data_user = [
+                    'name'   => $request->name,
+                    'email'   => $request->email,
+                    'foto'    => 'uploads/'.$newFoto
+                ];
+            }
+            else{
+
+                $data_user = [
+                    'name'   => $request->name,
+                    'email'   => $request->email
+                ];
+
+            }
+
+            $status = $request->user()->update($data_user);
 
 
-        if ($status) {
-            return redirect()->back()->with('edit', 'Data berhasil diubah');
-        }else{
-            return redirect()->back()->with('error', 'Data gagal diubah');
+            if ($status) {
+                return redirect()->back()->with('edit', 'Data berhasil diubah');
+            }else{
+                return redirect()->back()->with('error', 'Data gagal diubah');
+            }
         }
-    }
 
-    public function editPassword(Request $request){
-        return view('editPassword', [
-            'user' => $request->user()
-        ]);
-    }
+        public function editPassword(Request $request){
+            return view('editPassword', [
+                'user' => $request->user()
+                ]);
+            }
 
-    public function updatePassword(Request $request){
-        $request->user()->update([
-            'password' => Hash::make($request->get('new_password'))
-        ]);
+            public function updatePassword(Request $request){
+                $request->user()->update([
+                    'password' => Hash::make($request->get('new_password'))
+                    ]);
 
-        return redirect('editPassword')->with('success', 'sasas');
-    }
+                    return redirect('editPassword')->with('success', 'sasas');
+                }
 
      /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-            Product::create([
+      * Store a newly created resource in storage.
+      *
+      * @param  \Illuminate\Http\Request  $request
+      * @return \Illuminate\Http\Response
+      */
+      public function store(Request $request)
+      {
+          Product::create([
             'id_user' => $request->userid,
             'slucy_id' => $request->regist,
             'product_name' => $request->product,
@@ -122,38 +122,80 @@ class HomeController extends Controller
             'days' => null,
             'power' => 'Off',
             'action' => 'In'
-        ]);
+            ]);
 
-        return redirect('home')->with('status', 'Product berhasil ditambahkan');
+            return redirect('home')->with('status', 'Product berhasil ditambahkan');
 
-    }
-
-    public function Out($id, Request $request){
-        $product    = Product::findorfail($id);
-
-        $data = [
-            'action' => 'Out'
-        ];
-
-        $product->update($data);
-
-        return redirect()->back()->with('out', 'Out');
-    }
-
-    public function In(Request $request){
-        $data = [
-            'action' => 'In'
-        ];
-
-        $in = Product::where('action', 'like', 'Out')->when($request->slucyid, function ($query) use ($request) {
-            $query->where('slucy_id', 'like', $request->slucyid);
-        })->update($data);
-
-        if($in){
-            return redirect('home')->with('in', 'In');
         }
-        else{
-            return redirect()->back()->with('error', 'Slucy Id yang anda masukan Tidak terdaftar atau sudah terdaftar!!');
+
+        public function Out($id, Request $request){
+            $product    = Product::findorfail($id);
+
+            $data = [
+                'action' => 'Out'
+            ];
+
+            $product->update($data);
+
+            return redirect()->back()->with('out', 'Out');
         }
-    }
+
+        public function In(Request $request){
+            $data = [
+                'action' => 'In'
+            ];
+
+            $in = Product::where('action', 'like', 'Out')->when($request->slucyid, function ($query) use ($request) {
+                $query->where('slucy_id', 'like', $request->slucyid);
+            })->update($data);
+
+            if($in){
+                return redirect('home')->with('in', 'In');
+            }
+            else{
+                return redirect()->back()->with('error', 'Slucy Id yang anda masukan Tidak terdaftar atau sudah terdaftar!!');
+            }
+        }
+        public function switch(Request $request){
+            $product = Product::find($request->id);
+            $ironmen = 2;
+            if($request->power == 1){
+                $ironmen = 1;
+            }
+            else{
+                $ironmen = 2;
+            }
+            $product->power = $ironmen;
+            $product->save();
+            // return redirect()->back()->with('message','Rasanya anjayani');
+            return json_encode(array('statusCode'=>200));
+        }
+        public function getPower(Request $request){
+            $product = Product::find($request->id);
+            return json_encode(array('statusCode'=>200, 'power'=>$product->power));
+        }
+        public function testTimeUpdate(Request $request, $id){
+            $timesetData = \DB::table('product')->select('product.timer_set')->where('id', $id)->first();
+            $timeuntilData = \DB::table('product')->select('product.time_until')->where('id', $id)->first();
+            $timeset = Carbon::parse($timesetData->timer_set)->format('H:i');
+            $timeuntil = Carbon::parse($timeuntilData->time_until)->format('H:i');
+
+            $getTimeNow = Carbon::now();
+            $timeNow = $getTimeNow->format('H:i');
+            if($timeset == $timeNow){
+                $update = \DB::table('product')->where('id', $id)->update([
+                    'power' => "On"
+                ]);
+
+                return response()->json($update);
+            }
+            if($timeuntil == $timeNow){
+                $update = \DB::table('product')->where('id', $id)->update([
+                    'power' => "Off"
+                ]);
+
+                return response()->json($update);
+            }
+            return response()->json($timeNow);
+        }
 }
