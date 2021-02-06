@@ -313,7 +313,7 @@
                           }else{
                             var ment = document.getElementById("onoff");
                             ment.value="Off";
-                            ment.classList.add("btn-success");
+                            ment.classList.remove("btn-success");
                             ment.classList.add("btn-danger");
                           }
                         }
