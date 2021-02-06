@@ -156,4 +156,16 @@ class HomeController extends Controller
             return redirect()->back()->with('error', 'Slucy Id yang anda masukan Tidak terdaftar atau sudah terdaftar!!');
         }
     }
+    public function setTime($id, Request $request){
+        $status = Product::findorfail($id);
+
+        $data = [
+            'timer_set' => $request->timer_set,
+            'timer_until' => $request->timer_until
+        ];
+
+        $status->update($data);
+
+        return redirect()->back()->with('set', 'set');
+    }
 }

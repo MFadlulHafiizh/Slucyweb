@@ -13,6 +13,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/timepicker.css'" />
+    <script src="js/timepicker.js" defer></script>
+
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -32,6 +35,9 @@
             border-radius: 2rem;
             background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 );
             color: white;
+        }
+        .picker{
+            width: 20%;
         }
     </style>
 
@@ -59,6 +65,14 @@
             swal({
                 icon: 'info',
                 title: 'Status produk berhasil dikeluarkan!',
+            });
+    </script>
+    @endif
+    @if (session('set'))
+    <script>
+            swal({
+                icon: 'info',
+                title: 'Timer berhasil di set!',
             });
     </script>
     @endif
@@ -269,7 +283,17 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->slucy_id }}</td>
                                                 <td>{{ $item->product_name }}</td>
-                                                <td>{{ $item->timer_set }} - {{ $item->timer_until }}</td>
+                                                <td>
+                                                    <form action="/setTime/{{ $item->id }}" method="POST" class="time">
+                                                        @method('PUT')
+                                                        @csrf
+                                                        <div class="form-inline">
+                                                        <input class="form-control picker" id="set" type="text" value="{{ $item->timer_set }} " name="timer_set"/>
+                                                        <input class="form-control picker" id="until" type="text" value="{{ $item->timer_until }}" name="timer_until"/>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-secondary my-2 my-sm-0 set">Set</button>
+                                                    </form>
+                                                </td>
                                                 <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
                                                 <td> <label class="switch"> <input type="checkbox"><span class="slider round"></span> </label></td>
                                                 <td><form action="/out/{{ $item->id }}" method="POST">
@@ -436,6 +460,30 @@
         </div>
     </div>
 
+    <script>
+        $(function() {
+            $('input[name="timer_set"]').timepicker({
+                timePicker: true,
+                ampmText: { am:"am", pm:"pm", AM:"AM", PM:"PM" },
+                hourHeaderText:"hour",
+                minHeaderText:"min",
+                okButtonText:"&#10004;",
+                cancelButtonText:"&#10005;"
+            });
+        });
+
+        $(function() {
+            $('input[name="timer_until"]').timepicker({
+                timePicker: true,
+                ampmText: { am:"am", pm:"pm", AM:"AM", PM:"PM" },
+                hourHeaderText:"hour",
+                minHeaderText:"min",
+                okButtonText:"&#10004;",
+                cancelButtonText:"&#10005;"
+            });
+        });
+
+    </script>
     <!-- Bootstrap core JavaScript-->
     <script src="jquery/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>

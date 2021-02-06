@@ -31,4 +31,5 @@ Route::put('/out/{id}', 'HomeController@out')->name('out');
 Route::put('/in', 'HomeController@in')->name('in');
 Route::put('/editProfile', 'HomeController@editProfile')->name('editProfile');
 Route::put('/updatePassword', 'HomeController@updatePassword')->name('updatePassword');
+Route::put('/setTime/{id}', 'HomeController@setTime')->name('setTime');
 
