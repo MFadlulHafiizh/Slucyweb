@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Product;
 use App\User;
+use App\RepeatDays;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -203,9 +204,18 @@ class HomeController extends Controller
         public function day(Request $request){
             $status = Product::findorfail($request->id);
             $input = $request->all();
-            $input['days'] = $request->input('day');
-            $input['days'] = implode(", ",$input['days']);
-            $status->update($input);
+            $dataSelected = $request->input('day');
+            
+            foreach($dataSelected as $row){
+                RepeatDays::create([
+                    'id_product' => $request->id,
+                    'days'       => $row
+                ]);
+            }
+
+            // $input['days'] = $request->input('day');
+            // $input['days'] = implode(", ",$input['days']);
+            // $status->update($input);
             return redirect()->back();
         }
         public function testTimeUpdate(Request $request, $id){
