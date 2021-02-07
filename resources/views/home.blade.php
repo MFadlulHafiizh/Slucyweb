@@ -336,26 +336,7 @@
                                                 });
                                                 </script>
                                                 <td>
-                                                    @php
-                                                        $pw;
-                                                        $bt;
-                                                        if ($item->power == "On") {
-                                                                $pw = "On";
-                                                                $bt = "btn-success";
-                                                        }
-                                                        else {
-                                                            $pw = "Off";
-                                                            $bt = "btn-danger";
-                                                        }
-                                                    @endphp
-                                                    {{-- <input type="button" value="<?=$pw?>" id="onoff" onclick="onoff();" class="btn <?=$bt?> "> --}}
-                                                    <form action="/up/{{$item->id}}" method="POST">
-                                                        @method('PUT')
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{$item->id}}" id="merah">
-                                                        <input type="hidden" name="power" value="{{$item->power}}">
-                                                        <button type="submit" value="<?=$pw?>" class="btn <?=$bt?> "><?=$pw?></button>
-                                                    </form>
+                                                    <label class="switch"> <input class="toggle-class" data-id="{{ $item->id }}" type="checkbox" {{ $item->power == "On" ? 'checked' : '' }}> <span class="slider round"></span> </label>
                                                 </td>
                                                 <td><form action="/out/{{ $item->id }}" method="POST">
                                                     @method('PUT')
@@ -370,59 +351,24 @@
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                        function onoff(){
-                          currentvalue = document.getElementsByClassName('btnswitch').value;
-                          if(currentvalue == "Off"){
-                            var ele = document.getElementsByClassName("btnswitch");
-                            ele.value="On";
-                            ele.classList.remove("btn-danger");
-                            ele.classList.add("btn-success");
-                          }else{
-                            var ment = document.getElementsByClassName("btnswitch");
-                            ment.value="Off";
-                            ment.classList.remove("btn-success");
-                            ment.classList.add("btn-danger");
-                          }
-                        }
-                        </script>
-                        <script type="text/javascript">
-                            $(document).ready(function(){
-                                $(".btnswitch").click(function(e) {
-                                    e.preventDefault();
-                                    var url="{{route('switch')}}";
-                                    var id = $(this).parent().parent().children()[0].innerHTML;
-                                    var buton = $(".btnswitch").val();
-                                    var power;
-                                    if (buton === "Off") {
-                                        power = 2;
-                                    }
-                                    else{
-                                        power =1;
-                                    }
-                                    $.ajax({
-                                        url: url,
-                                        method: "POST",
-                                        data:{
-                                            _token: '{{csrf_token()}}',
-                                            id: id,
-                                            power: power
-                                        },
-                                        success: function(dataResult){
-                                            dataResult = JSON.parse(dataResult);
-                                            console.log(dataResult);
-                                            if(dataResult.statusCode)
-                                            {
-                                                alert("Switch Success!");
-                                            }
-                                            else{
-                                                alert("Internal Server Error");
-                                            }
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
+                        <script>
+                            $(function() {
+                              $('.toggle-class').change(function() {
+                                  var status = $(this).prop('checked') == true ? "On" : "Off"; 
+                                  var id_product = $(this).data('id'); 
+                                   
+                                  $.ajax({
+                                      type: "GET",
+                                      dataType: "json",
+                                      url: '/changePower',
+                                      data: {'power': status, 'id': id_product},
+                                      success: function(data){
+                                        console.log(data.success)
+                                      }
+                                  });
+                              })
+                            })
+                          </script>
                         <script>
                             $(function() {
                                 $('input[name="timer_set"]').timepicker({
