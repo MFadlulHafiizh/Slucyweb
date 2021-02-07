@@ -205,7 +205,7 @@ class HomeController extends Controller
             $status = Product::findorfail($request->id);
             $input = $request->all();
             $dataSelected = $request->input('day');
-            
+
             foreach($dataSelected as $row){
                 RepeatDays::create([
                     'id_product' => $request->id,
@@ -216,7 +216,7 @@ class HomeController extends Controller
             // $input['days'] = $request->input('day');
             // $input['days'] = implode(", ",$input['days']);
             // $status->update($input);
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
         public function testTimeUpdate(Request $request, $id){
             $timesetData = \DB::table('product')->select('product.timer_set')->where('id', $id)->first();

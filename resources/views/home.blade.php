@@ -265,6 +265,37 @@
                                                 <td colspan="2"><i class="fas fa-hourglass-half mr-2"></i>Set Timer</td>
                                                 <td><i class="fas fa-power-off mr-2"></i>Power</td>
                                                 <td>Action</td>
+                                                @php
+                                                    $monday = "";
+                                                    $tuesday = "";
+                                                    $wednesday = "";
+                                                    $thursday = "";
+                                                    $friday = "";
+                                                    $saturday = "";
+                                                    $sunday = "";
+                                                    if (is_array(old('day')) && in_array("Monday", old('day'))) {
+                                                        $monday = "checked";
+                                                    }
+                                                    if (is_array(old('day')) && in_array("Tuesday", old('day'))) {
+                                                        $tuesday = "checked";
+                                                    }
+                                                    if (is_array(old('day')) && in_array("Wednesday", old('day'))) {
+                                                        $wednesday = "checked";
+                                                    }
+                                                    if (is_array(old('day')) && in_array("Thursday", old('day'))) {
+                                                        $thursday = "checked";
+                                                    }
+                                                    if (is_array(old('day')) && in_array("Friday", old('day'))) {
+                                                        $friday = "checked";
+                                                    }
+                                                    if (is_array(old('day')) && in_array("Saturday", old('day'))) {
+                                                        $saturday = "checked";
+                                                    }
+                                                    if (is_array(old('day')) && in_array("Sunday", old('day'))) {
+                                                        $sunday = "checked";
+                                                    }
+
+                                                @endphp
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -524,13 +555,13 @@
                 <form method="POST" action="" id="geming">
                     @csrf
                     <input type="hidden" value="" name="id" id="gg">
-                    <ul><input type="checkbox" value="Monday" name="day[]"><span class="ml-3">Monday</span></ul>
-                    <ul><input type="checkbox" value="Tuesday" name="day[]"><span class="ml-3">Tuesday</span></ul>
-                    <ul><input type="checkbox" value="Wednesday" name="day[]"><span class="ml-3">Wednesday</span></ul>
-                    <ul><input type="checkbox" value="Thursday" name="day[]"><span class="ml-3">Thursday</span></ul>
-                    <ul><input type="checkbox" value="Friday" name="day[]"><span class="ml-3">Friday</span></ul>
-                    <ul><input type="checkbox" value="Saturday" name="day[]"><span class="ml-3">Saturday</span></ul>
-                    <ul><input type="checkbox" value="Sunday" name="day[]"><span class="ml-3">Sunday</span></ul>
+                    <ul><input type="checkbox" value="Monday" name="day[]" {{$monday}}><span class="ml-3">Monday</span></ul>
+                    <ul><input type="checkbox" value="Tuesday" name="day[]" {{$tuesday}}><span class="ml-3">Tuesday</span></ul>
+                    <ul><input type="checkbox" value="Wednesday" name="day[]" {{$wednesday}}><span class="ml-3">Wednesday</span></ul>
+                    <ul><input type="checkbox" value="Thursday" name="day[]" {{$thursday}}><span class="ml-3">Thursday</span></ul>
+                    <ul><input type="checkbox" value="Friday" name="day[]" {{$friday}}><span class="ml-3">Friday</span></ul>
+                    <ul><input type="checkbox" value="Saturday" name="day[]" {{$saturday}}><span class="ml-3">Saturday</span></ul>
+                    <ul><input type="checkbox" value="Sunday" name="day[]" {{$sunday}}><span class="ml-3">Sunday</span></ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
