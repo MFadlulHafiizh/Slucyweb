@@ -185,6 +185,14 @@ class HomeController extends Controller
             // return redirect()->back()->with('message','Rasanya anjayani');
             return redirect()->back();
         }
+        public function changePower(Request $request)
+        {
+        $power = Product::find($request->id);
+        $power->power = $request->power;
+        $power->save();
+  
+        return response()->json(['success'=>'Status change successfully.']);
+        }
         public function getPower(Request $request){
             $product = Product::find($request->id);
             return json_encode(array('statusCode'=>200, 'power'=>$product->power));
