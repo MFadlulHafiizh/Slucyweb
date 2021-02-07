@@ -28,6 +28,8 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <style>
@@ -295,7 +297,22 @@
                                                     </form>
                                                 </td>
                                                 <td><button class="btn btnRound" type="button" data-toggle="modal" data-target="#modalRepeat">Repeat</button></td>
-                                                <td> <label class="switch"> <input type="checkbox"><span class="slider round"></span> </label></td>
+                                                <td>
+                                                    @php
+                                                        $pw;
+                                                        $bt;
+                                                        if ($item->power == "On") {
+                                                            $pw = "Off";
+                                                            $bt = "btn-danger";
+                                                        }
+                                                        else {
+                                                            $pw = "On";
+                                                            $bt = "btn-success";
+                                                        }
+                                                    @endphp
+                                                    <input type="button" value="<?=$pw?>" id="onoff" onclick="onoff();" class="btn <?=$bt?> ">
+                                                    <input type="hidden" name="id" value="{{$item->id}}" id="merah">
+                                                </td>
                                                 <td><form action="/out/{{ $item->id }}" method="POST">
                                                     @method('PUT')
                                                     @csrf
@@ -309,7 +326,59 @@
                             </div>
                         </div>
                     </div>
-
+                    <script type="text/javascript">
+                        function onoff(){
+                          currentvalue = document.getElementById('onoff').value;
+                          if(currentvalue == "Off"){
+                            var ele = document.getElementById("onoff");
+                            ele.value="On";
+                            ele.classList.remove("btn-danger");
+                            ele.classList.add("btn-success");
+                          }else{
+                            var ment = document.getElementById("onoff");
+                            ment.value="Off";
+                            ment.classList.remove("btn-success");
+                            ment.classList.add("btn-danger");
+                          }
+                        }
+                        </script>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                $("#onoff").click(function(e) {
+                                    e.preventDefault();
+                                    var url="{{route('switch')}}";
+                                    var id=$("#merah").val();
+                                    var buton = $("#onoff").val();
+                                    var power;
+                                    if (buton === "Off") {
+                                        power = 1;
+                                    }
+                                    else{
+                                        power =2;
+                                    }
+                                    $.ajax({
+                                        url: url,
+                                        method: "POST",
+                                        data:{
+                                            _token: '{{csrf_token()}}',
+                                            id: id,
+                                            power: power
+                                        },
+                                        success: function(dataResult){
+                                            dataResult = JSON.parse(dataResult);
+                                            console.log(dataResult);
+                                            if(dataResult.statusCode)
+                                            {
+                                                alert("Switch Success!");
+                                            }
+                                            else{
+                                                alert("Internal Server Error");
+                                            }
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
                     <!-- Content Row -->
                     <div class="row">
 
@@ -422,6 +491,8 @@
                   <ul><input type="checkbox" value="Friday"><span class="ml-3">Friday</span></ul>
                   <ul><input type="checkbox" value="Saturday"><span class="ml-3">Saturday</span></ul>
                   <ul><input type="checkbox" value="Sunday"><span class="ml-3">Sunday</span></ul>
+                <input type="text" id="timefrom">
+                <input type="text" id="timeto">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -431,7 +502,10 @@
           </div>
         </div>
     </div>
-
+    <script>
+        $('#timefrom').timepicker({ 'timeFormat': 'H:i:s' });
+        $('#timeto').timepicker({ 'timeFormat': 'h:i A' });
+    </script>
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
