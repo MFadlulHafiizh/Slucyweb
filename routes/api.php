@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('testService', 'ApiserviceController@handle');
+Route::post('esp8266/slucy', 'ApiserviceController@arduinoStat');

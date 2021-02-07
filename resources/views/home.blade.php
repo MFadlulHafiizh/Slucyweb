@@ -34,7 +34,7 @@
     <style>
         .btnRound{
             border-radius: 2rem;
-            background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 );
+            background: linear-gradient(45deg, #52525265, #0a002c,#0a002c , #5f2c82 );
             color: white;
         }
     </style>
@@ -73,7 +73,7 @@
         <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar" style="background: linear-gradient(45deg,#0a002c, #0a002c,#0a002c , #5f2c82) ">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.png" style="width: 75px; height: 75 px;">
                 </div>
@@ -255,8 +255,8 @@
 
                                 </div>
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                    <table class="table table-hover" style="background: transparent;">
+                                <div class="card-body"  style="overflow: auto;">
+                                    <table class="table table-hover table-striped" style="overflow: auto;">
                                         <thead>
                                             <tr style="text-align: center;">
                                                 <td>No</td>
@@ -269,19 +269,27 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($value as $item)
-                                            <tr style="text-align: center;">
+                                            <tr style="text-align: center;" class="hvrtr">
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->slucy_id }}</td>
                                                 <td>{{ $item->product_name }}</td>
-                                                <td>
+                                                <td class="w-25">
                                                     <form action="/setTime/{{ $item->id }}" method="POST" class="time">
                                                         @method('PUT')
                                                         @csrf
-                                                        <div class="form-inline">
-                                                        <input class="form-control picker col-xs-2" id="set" type="text" value="{{ $item->timer_set }} " name="timer_set"/>
-                                                        <input class="form-control picker col-xs-2" id="until" type="text" value="{{ $item->timer_until }}" name="timer_until"/>
+                                                        <div class="form-inline justify-content-center">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-md-4">
+                                                                    <input class="form-control picker text-center w-100" id="set" type="text" value="{{ Carbon\Carbon::parse($item->timer_set)->format('H:i') }} " name="timer_set"/>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <input class="form-control picker text-center w-100" id="until" type="text" value="{{ Carbon\Carbon::parse($item->timer_until)->format('H:i') }}" name="timer_until"/>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <button type="submit" class="btn btnRound set ml-2">Set</button>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-secondary my-2 my-sm-0 set">Set</button>
                                                     </form>
                                                 </td>
                                                 <td><button class="btn btnRound btnRepeat" type="button" data-toggle="modal" data-target="#modalRepeat" data-id="{{$item->id}}">Repeat</button></td>
@@ -322,7 +330,7 @@
                                                     @method('PUT')
                                                     @csrf
                                                     <button type="submit" class="btn btn-link text-dark" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Delete Email History?" onclick="return confirm('Apakah anda yakin ingin Mengubah status data ini?')" onclick="showAlert()">Out</button>
-                                                </form><td>
+                                                </form>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -573,19 +581,6 @@
     <script src="js/sb-admin-2.min.js"></script>
 
 
-    {{-- Firebase --}}
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/8.2.5/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="/__/firebase/8.2.5/firebase-analytics.js"></script>
-
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
-    <script>
-
-    </script>
 
 </body>
 

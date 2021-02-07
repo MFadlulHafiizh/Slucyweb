@@ -43,10 +43,13 @@
       .btn-custom{
         background: transparent;
         color: white;
+        transition: 0.5s;
       }
       .btn-custom:hover{
         background: white;
         color: #5f2c82;
+        border-radius: 1.5rem;
+        transition: 0.5s;
       }
    </style>
 
@@ -59,13 +62,13 @@
     <div class="container">
       <a class="navbar-brand" style="color: rgb(255, 255, 255)" href="#">S-LUCY</a>
       @guest
-      <li class="nav-item">
-          <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-      </li>
+      
+          <a class="btn btn-custom" href="{{ route('login') }}">{{ __('Sign in') }}</a>
+     
      @else
-      <li class="nav-item dropdown">
-        <a class="nav-link text-white" href="{{ route('home') }}">Home</a>
-      </li>
+     
+        <a class="btn btn-custom" href="{{ route('home') }}">Home</a>
+     
   @endguest
     </div>
   </nav>
@@ -151,7 +154,7 @@
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6 text-white showcase-img">
-          <img src="img/smartfitting.jpeg" class="img-fluid w-100 justify-content-center">
+          <img src="img/smartfitting.png" class="img-fluid w-100 justify-content-center">
         </div>
         <div class="col-lg-6 text-center my-auto showcase-text">
           <h2 style="color: rgb(255, 255, 255)">Smart Switch</h2>
@@ -211,12 +214,8 @@
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <form>
-            <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" style="opacity: 80%; border-radius:1.5rem" placeholder="Enter your email...">
-              </div>
-              <div class="col-12 col-md-3">
-                <a href="{{ route('register')}}" type="submit" class="btn text-light btn-lg" style="border-radius: 1.5rem;border: transparent;background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82)">Sign up!</a>
+              <div class="col-12 justify-content-center">
+                <a href="{{ route('register')}}" type="submit" class="btn text-light btn-lg" style="border-radius: 1.5rem;border: transparent;background: linear-gradient(45deg, #0a002c,#0a002c , #a798da, #5f2c82)">Sign up!</a>
               </div>
             </div>
           </form>
@@ -232,17 +231,17 @@
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto"style="color: rgb(255, 255, 255)">
           <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">
-              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><i class="fab fa-telegram fa-fw mr-2" style="color: rgb(255, 255, 255)"></i>Our Telegram : <a href="https://t.me/slucywebsite" class="text-light">slucywebsite</a></span>
+              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><i class="fab fa-telegram fa-fw mr-2" style="color: rgb(255, 255, 255)"></i><a href="https://t.me/slucywebsite" class="text-light">slucywebsite</a></span>
             </li>
           </ul>
           <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">
-              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><i class="fas fa-envelope fa-fw mr-2" style="color: rgb(255, 255, 255)" ></i>Contact us :  <a href="https://t.me/slucywebsite" class="text-light">slucyinfo@gmail.com</a></span>
+              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><i class="fas fa-envelope fa-fw mr-2" style="color: rgb(255, 255, 255)" ></i>slucyinfo@gmail.com</span>
             </li>
           </ul>
           <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">
-              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><i class="fas fa-globe fa-fw mr-2" style="color: rgb(255, 255, 255)" ></i>S-LUCY Website :  <a href="https://t.me/slucywebsite" class="text-light">slucy.com</a></span>
+              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><i class="fas fa-globe fa-fw mr-2" style="color: rgb(255, 255, 255)" ></i>slucy.com</span>
             </li>
           </ul>
         </div>
@@ -251,15 +250,15 @@
             <i class="fas fa-users fa-fw mr-2"></i> Our Team :</span>
           <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">
-              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)">Khoerunnisa Cahya Amalia : <a href="https://t.me/Khoerunnisaca" class="text-light">Khoerunnisaca <i class="fab fa-telegram fa-fw ml-2" style="color: rgb(255, 255, 255)" ></i></a></span>
+              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><a href="https://t.me/Khoerunnisaca" class="text-light">Khoerunnisaca <i class="fab fa-telegram fa-fw ml-2" style="color: rgb(255, 255, 255)" ></i></a></span>
             </li>
           </ul>
           <ul class="list-inline mb-2" style="color: rgb(255, 255, 255)">
             <li class="list-inline-item" style="color: rgb(255, 255, 255)">
-              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)">Lulu Tania :  <a href="https://t.me/lulutania" class="text-light">lulutania</a><i class="fab fa-telegram fa-fw ml-2" style="color: rgb(255, 255, 255)" ></i></span>
+              <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><a href="https://t.me/lulutania" class="text-light">lulutania</a><i class="fab fa-telegram fa-fw ml-2" style="color: rgb(255, 255, 255)" ></i></span>
             </li>
           </ul>
-          <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)">Almyra Rosedyana :  <a href="https://t.me/almyrarose" class="text-light">almyrarose</a><i class="fab fa-telegram fa-fw ml-2" style="color: rgb(255, 255, 255)" ></i></span>
+          <span class="small mb-4 mb-lg-0" style="color: rgb(255, 255, 255)"><a href="https://t.me/almyrarose" class="text-light">almyrarose</a><i class="fab fa-telegram fa-fw ml-2" style="color: rgb(255, 255, 255)" ></i></span>
         </div>
         </div>
         <div class="col-lg-12 mt-3 text-lg-center"style="color: rgb(255, 255, 255)">
@@ -283,17 +282,6 @@
    <!-- Custom scripts for all pages-->
    <script src="js/sb-admin-2.min.js"></script>
 
-
-   {{-- Firebase --}}
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
-   <script src="/__/firebase/8.2.5/firebase-app.js"></script>
-
-   <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
-   <script src="/__/firebase/8.2.5/firebase-analytics.js"></script>
-
-   <!-- Initialize Firebase -->
-   <script src="/__/firebase/init.js"></script>
    <script>
 
     window.onscroll = function() {scrollFunction()};
