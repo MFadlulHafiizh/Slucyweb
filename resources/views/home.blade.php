@@ -66,6 +66,38 @@
             });
     </script>
     @endif
+    @php
+        $monday = "";
+        $tuesday = "";
+        $wednesday = "";
+        $thursday = "";
+        $friday = "";
+        $saturday = "";
+        $sunday = "";
+        foreach ($day as $hari) {
+            if (is_array(old('day')) && in_array("Monday", old('day')) || $hari->days == "Monday") {
+                $monday = "checked";
+            }
+            if (is_array(old('day')) && in_array("Tuesday", old('day'))|| $hari->days == "Tuesday") {
+                $tuesday = "checked";
+            }
+            if (is_array(old('day')) && in_array("Wednesday", old('day'))|| $hari->days == "Wednesday") {
+                $wednesday = "checked";
+            }
+            if (is_array(old('day')) && in_array("Thursday", old('day'))|| $hari->days == "Thursday") {
+                $thursday = "checked";
+            }
+            if (is_array(old('day')) && in_array("Friday", old('day'))|| $hari->days == "Friday") {
+                $friday = "checked";
+            }
+            if (is_array(old('day')) && in_array("Saturday", old('day'))|| $hari->days == "Saturday") {
+                $saturday = "checked";
+            }
+            if (is_array(old('day')) && in_array("Sunday", old('day'))|| $hari->days == "Sunday") {
+                $sunday = "checked";
+            }
+        }
+    @endphp
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -265,37 +297,6 @@
                                                 <td colspan="2"><i class="fas fa-hourglass-half mr-2"></i>Set Timer</td>
                                                 <td><i class="fas fa-power-off mr-2"></i>Power</td>
                                                 <td>Action</td>
-                                                @php
-                                                    $monday = "";
-                                                    $tuesday = "";
-                                                    $wednesday = "";
-                                                    $thursday = "";
-                                                    $friday = "";
-                                                    $saturday = "";
-                                                    $sunday = "";
-                                                    if (is_array(old('day')) && in_array("Monday", old('day'))) {
-                                                        $monday = "checked";
-                                                    }
-                                                    if (is_array(old('day')) && in_array("Tuesday", old('day'))) {
-                                                        $tuesday = "checked";
-                                                    }
-                                                    if (is_array(old('day')) && in_array("Wednesday", old('day'))) {
-                                                        $wednesday = "checked";
-                                                    }
-                                                    if (is_array(old('day')) && in_array("Thursday", old('day'))) {
-                                                        $thursday = "checked";
-                                                    }
-                                                    if (is_array(old('day')) && in_array("Friday", old('day'))) {
-                                                        $friday = "checked";
-                                                    }
-                                                    if (is_array(old('day')) && in_array("Saturday", old('day'))) {
-                                                        $saturday = "checked";
-                                                    }
-                                                    if (is_array(old('day')) && in_array("Sunday", old('day'))) {
-                                                        $sunday = "checked";
-                                                    }
-
-                                                @endphp
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -324,17 +325,6 @@
                                                     </form>
                                                 </td>
                                                 <td><button class="btn btnRound btnRepeat" type="button" data-toggle="modal" data-target="#modalRepeat" data-id="{{$item->id}}">Repeat</button></td>
-                                                <script type="text/javascript">
-                                                $(function(){
-                                                    $('.btnRepeat').on("click",function(e){
-                                                        e.preventDefault();
-                                                        var id = $(this).parent().parent().children()[0].innerHTML;
-                                                        var tr = $(this).parent().parent();
-                                                        document.getElementById('gg').value = id;
-                                                        document.getElementById('geming').action = "/day/"+id;
-                                                    });
-                                                });
-                                                </script>
                                                 <td>
                                                     <label class="switch"> <input class="toggle-class" data-id="{{ $item->id }}" type="checkbox" {{ $item->power == "On" ? 'checked' : '' }}> <span class="slider round"></span> </label>
                                                 </td>
@@ -351,12 +341,23 @@
                             </div>
                         </div>
                     </div>
+                    <script type="text/javascript">
+                        $(function(){
+                            $('.btnRepeat').on("click",function(e){
+                                e.preventDefault();
+                                var id = $(this).parent().parent().children()[0].innerHTML;
+                                var tr = $(this).parent().parent();
+                                document.getElementById('idmodal').value = id;
+                                document.getElementById('actmodal').action = "/day/"+id;
+                            });
+                        });
+                        </script>
                         <script>
                             $(function() {
                               $('.toggle-class').change(function() {
-                                  var status = $(this).prop('checked') == true ? "On" : "Off"; 
-                                  var id_product = $(this).data('id'); 
-                                   
+                                  var status = $(this).prop('checked') == true ? "On" : "Off";
+                                  var id_product = $(this).data('id');
+
                                   $.ajax({
                                       type: "GET",
                                       dataType: "json",
@@ -498,9 +499,9 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="" id="geming">
+                <form method="POST" action="" id="actmodal">
                     @csrf
-                    <input type="hidden" value="" name="id" id="gg">
+                    <input type="hidden" value="" name="id" id="idmodal">
                     <ul><input type="checkbox" value="Monday" name="day[]" {{$monday}}><span class="ml-3">Monday</span></ul>
                     <ul><input type="checkbox" value="Tuesday" name="day[]" {{$tuesday}}><span class="ml-3">Tuesday</span></ul>
                     <ul><input type="checkbox" value="Wednesday" name="day[]" {{$wednesday}}><span class="ml-3">Wednesday</span></ul>

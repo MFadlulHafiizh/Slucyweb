@@ -40,8 +40,15 @@ class HomeController extends Controller
 
         $plug = Product::where('product_name', 'like', 'Plug')->where('id_user', 'like', Auth::user()->id)
         ->count();
+        $day = \DB::table('repeat_days')
+                ->select('repeat_days.days')
+                ->join('product','repeat_days.id_product','=','product.id')
+                ->join('users','product.id_user','=','users.id')
+                ->where('product.id_user',Auth::user()->id)
+                ->get();
+
         $reformatDate = $dateNow->format('j F Y h:i:s A');
-        return view('home', compact('value', 'switch', 'plug'));
+        return view('home', compact('value', 'switch', 'plug','day'));
     }
     public function registid(){
         return view('registid');
@@ -157,45 +164,13 @@ class HomeController extends Controller
                 return redirect()->back()->with('error', 'Slucy Id yang anda masukan Tidak terdaftar atau sudah terdaftar!!');
             }
         }
-        public function switch(Request $request){
-            $product = Product::find($request->id);
-            $ironmen = 2;
-            if($request->power == 1){
-                $ironmen = 1;
-            }
-            else{
-                $ironmen = 2;
-            }
-            $product->power = $ironmen;
-            $product->save();
-            // return redirect()->back()->with('message','Rasanya anjayani');
-            return json_encode(array('statusCode'=>200));
-        }
-        public function up(Request $request){
-            $product = Product::find($request->id);
-            $ironmen = 2;
-            if($request->power == "Off"){
-                $ironmen = 1;
-            }
-            else{
-                $ironmen = 2;
-            }
-            $product->power = $ironmen;
-            $product->save();
-            // return redirect()->back()->with('message','Rasanya anjayani');
-            return redirect()->back();
-        }
         public function changePower(Request $request)
         {
-        $power = Product::find($request->id);
-        $power->power = $request->power;
-        $power->save();
-  
-        return response()->json(['success'=>'Status change successfully.']);
-        }
-        public function getPower(Request $request){
-            $product = Product::find($request->id);
-            return json_encode(array('statusCode'=>200, 'power'=>$product->power));
+            $power = Product::find($request->id);
+            $power->power = $request->power;
+            $power->save();
+
+            return response()->json(['success'=>'Status change successfully.']);
         }
         public function setTime($id, Request $request){
             $status = Product::findorfail($id);
@@ -210,8 +185,7 @@ class HomeController extends Controller
             return redirect()->back()->with('set', 'set');
         }
         public function day(Request $request){
-            $status = Product::findorfail($request->id);
-            $input = $request->all();
+            RepeatDays::where('id_product',$request->id)->delete();
             $dataSelected = $request->input('day');
 
             foreach($dataSelected as $row){
@@ -220,10 +194,6 @@ class HomeController extends Controller
                     'days'       => $row
                 ]);
             }
-
-            // $input['days'] = $request->input('day');
-            // $input['days'] = implode(", ",$input['days']);
-            // $status->update($input);
             return redirect()->back()->withInput();
         }
         public function testTimeUpdate(Request $request, $id){
