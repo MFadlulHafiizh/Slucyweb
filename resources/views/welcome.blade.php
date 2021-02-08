@@ -145,7 +145,7 @@
       <div class="row no-gutters">
 
         <div class="col-lg-6 order-lg-2 text-white showcase-img">
-          <img src="img/smartplug.jpeg" class="img-fluid w-100 justify-content-center">
+          <img src="img/smartplug.png" class="img-fluid w-100 justify-content-center">
         </div>
         <div class="col-lg-6 text-center order-lg-1 my-auto showcase-text">
           <h2 style="color: rgb(255, 255, 255)">Smart Plug</h2>

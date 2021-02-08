@@ -94,7 +94,7 @@
                                         <a class="small text-gray-500" href="{{ route('register')}}">Create an Account!</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small text-gray-500" href="{{ url()->previous()}}">go back</a>
+                                        <a class="small text-gray-500" href="{{ url('/')}}">go back</a>
                                     </div>
                                 </div>
                             </div>

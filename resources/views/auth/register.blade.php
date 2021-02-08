@@ -74,7 +74,7 @@
                                 <a class="small" style="color:rgb(185, 185, 185);" href="{{ route('login')}}">Already have an account? Login!</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" style="color:rgb(185, 185, 185);" href="{{ url()->previous()}}">go back</a>
+                                <a class="small" style="color:rgb(185, 185, 185);" href="{{ url('/') }}">go back</a>
                             </div>
                         </div>
                     </div>

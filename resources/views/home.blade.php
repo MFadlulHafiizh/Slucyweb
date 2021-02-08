@@ -278,17 +278,9 @@
                                                         @method('PUT')
                                                         @csrf
                                                         <div class="form-inline justify-content-center">
-                                                            <div class="row no-gutters">
-                                                                <div class="col-md-4">
-                                                                    <input class="form-control picker text-center w-100" id="set" type="text" value="{{ Carbon\Carbon::parse($item->timer_set)->format('H:i') }} " name="timer_set"/>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <input class="form-control picker text-center w-100" id="until" type="text" value="{{ Carbon\Carbon::parse($item->timer_until)->format('H:i') }}" name="timer_until"/>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <button type="submit" class="btn btnRound set ml-2">Set</button>
-                                                                </div>
-                                                            </div>
+                                                                <input class="form-control picker text-center" id="set" type="text" value="{{ Carbon\Carbon::parse($item->timer_set)->format('H:i') }} " name="timer_set"/>
+                                                                <input class="form-control picker mt-1 text-center" id="until" type="text" value="{{ Carbon\Carbon::parse($item->timer_until)->format('H:i') }}" name="timer_until"/>
+                                                                <button type="submit" class="btn btnRound set ml-2 mt-2">Set</button>
                                                         </div>
                                                     </form>
                                                 </td>
@@ -361,6 +353,7 @@
                                 });
                             });
 
+                           
                         </script>
                     <!-- Content Row -->
                     <div class="row">
@@ -376,11 +369,11 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="">
+                                            src="img/smartfitting.png" alt="">
                                     </div>
                                     <p>What is Smart Switch(Fitting lamp) <a
                                             target="_blank" rel="nofollow" href="https://google.com/">Fitting lamp</a>, a light fixture!</p>
-                                    <a target="_blank" rel="nofollow" href="https://google.com/">More about Smart Switch &rarr;</a>
+                                    <a target="_blank" rel="nofollow" href="{{url('/')}}">More about Smart Switch &rarr;</a>
                                 </div>
                             </div>
 
@@ -402,11 +395,11 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="">
+                                            src="img/smartplug.png" alt="">
                                     </div>
                                     <p>What is Smart plug?<a
                                             target="_blank" rel="nofollow" href="https://google.com/">Plug</a></p>
-                                    <a target="_blank" rel="nofollow" href="https://google.com/">More About Smart Plug&rarr;</a>
+                                    <a target="_blank" rel="nofollow" href="{{url('/')}}">More About Smart Plug&rarr;</a>
                                 </div>
                             </div>
 
@@ -418,7 +411,7 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/bg-masthead.jpg" alt="">
+                                            src="img/ss.png" alt="">
                                     </div>
                                     <p>S-LUCY (Smart Light Ultimate Control by Website) makes extensive use of Bootstrap 4 utility classes in order to reduce
                                         CSS bloat and poor page performance. Custom CSS classes are used to create
