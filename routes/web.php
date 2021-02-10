@@ -32,6 +32,7 @@ Route::get('editPassword', 'HomeController@editPassword')->name('editPassword');
 Route::post('store', 'HomeController@store')->name('store');
 Route::post('/switch', 'HomeController@switch')->name('switch');
 Route::get('changePower', 'HomeController@changePower');
+Route::get('getDays', 'HomeController@getDays');
 
 Route::put('/out/{id}', 'HomeController@out')->name('out');
 Route::put('/in', 'HomeController@in')->name('in');
