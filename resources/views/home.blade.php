@@ -293,13 +293,18 @@
                                                                 ?>
                                                                 @else
                                                                     <?php 
-                                                                    $timerset = null;
+                                                                    $timerset =null;
                                                                     $timeruntil =null;
                                                                     ?>
                                                                 @endif
-                                                                <input class="form-control picker text-center" id="set" type="text" value="{{ $timerset }} " name="timer_set"/>
-                                                                <input class="form-control picker mt-1 text-center" id="until" type="text" value="{{ $timeruntil }}" name="timer_until"/>
+                                                                <div class="col-md-12">
+                                                                <input class="form-control picker text-center" id="set" autocomplete="off" type="text" value="{{ $timerset }} " name="timer_set"/>
+                                                                <input class="form-control picker mt-1 text-center" id="until" autocomplete="off" type="text" value="{{ $timeruntil }}" name="timer_until"/>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                <a class="btn btnRound reset mt-2" onclick="" id="reset_time" data-id="{{ $item->id }}">Reset</a>
                                                                 <button type="submit" class="btn btnRound set ml-2 mt-2">Set</button>
+                                                                </div>
                                                         </div>
                                                     </form>
                                                 </td>
@@ -365,8 +370,31 @@
                                         console.log(data.success)
                                       }
                                   });
-                              })
-                            })
+                              });
+                            });
+
+                            function resetValue() {
+                                document.getElementById("set").value = null;
+                                document.getElementById("until").value = null;
+                            }
+
+                            $(function(){
+                                $('#reset_time').on("click", function(e){
+                                    e.preventDefault();
+                                    var id = $(this).data('id');
+                                    var tr = $(this).parent().parent();
+                                    console.log(id);
+                                    $.ajax({
+                                        type : "GET",
+                                        dataType : "json",
+                                        url : "setTime/reset",
+                                        data : {'timer_until' : null, 'timer_set' : null, 'id' : id},
+                                        success: function(data){
+                                            cosole.log(data.success)
+                                        }
+                                    });
+                                });
+                            });
                           </script>
                         <script type="text/javascript">
                             $(function() {
@@ -508,8 +536,6 @@
                     <ul><input type="checkbox" class="cb" value="Sunday" name="day[]" ><span class="ml-3">Sunday</span></ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Reset</button>
                     <button type="submit" class="btn text-light" style="background: linear-gradient(45deg, #0a002c, #0a002c,#0a002c , #5f2c82 )">Save changes</button>
                 </form>
             </div>

@@ -184,6 +184,18 @@ class HomeController extends Controller
 
             return redirect()->back()->with('set', 'set');
         }
+        public function resetTime(Request $request){
+            $status = Product::find($request->id);
+
+            $data = [
+                'timer_set' => $request->timer_set,
+                'timer_until' => $request->timer_until
+            ];
+
+            $status->update($data);
+
+            return response()->json(['success' => 'Timer reset']);
+        }
         public function day(Request $request){
             RepeatDays::where('id_product',$request->id)->delete();
             $dataSelected = $request->input('day');
