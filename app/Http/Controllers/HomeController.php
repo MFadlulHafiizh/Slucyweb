@@ -41,7 +41,7 @@ class HomeController extends Controller
         $plug = Product::where('product_name', 'like', 'Plug')->where('id_user', 'like', Auth::user()->id)
         ->count();
         $day = \DB::table('repeat_days')
-                ->select('repeat_days.days')
+                ->select('*')
                 ->join('product','repeat_days.id_product','=','product.id')
                 ->join('users','product.id_user','=','users.id')
                 ->where('product.id_user',Auth::user()->id)
@@ -196,8 +196,13 @@ class HomeController extends Controller
                     ]);
                 }
             }
-            
+
             return redirect()->back()->withInput();
+        }
+        public function getDays(Request $request){
+            $data = RepeatDays::select('repeat_days.days')->where('id_product',$request->id)->get();
+            $data = $data->pluck('days');
+            return response()->json($data);
         }
         public function testTimeUpdate(Request $request, $id){
             $timesetData = \DB::table('product')->select('product.timer_set')->where('id', $id)->first();
