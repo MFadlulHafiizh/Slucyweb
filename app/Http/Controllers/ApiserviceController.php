@@ -66,7 +66,7 @@ class ApiserviceController extends Controller
 
     public function arduinoStat(Request $request){
         $getDataValues = DB::table('product')->select('slucy_id','power')
-        ->where('slucy_id', $request->slucy_id)->get();
+        ->where('slucy_id', $request->slucy_id)->first();
 
         return response()->json($getDataValues);
     }

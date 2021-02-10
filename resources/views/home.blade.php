@@ -314,12 +314,23 @@
                                                 <td>{{ $item->slucy_id }}</td>
                                                 <td>{{ $item->product_name }}</td>
                                                 <td class="w-25">
-                                                    <form action="/setTime/{{ $item->id }}" method="POST" class="time">
+                                                    <form action="setTime/{{ $item->id }}" method="POST" class="time">
                                                         @method('PUT')
                                                         @csrf
                                                         <div class="form-inline justify-content-center">
-                                                                <input class="form-control picker text-center" id="set" type="text" value="{{ Carbon\Carbon::parse($item->timer_set)->format('H:i') }} " name="timer_set"/>
-                                                                <input class="form-control picker mt-1 text-center" id="until" type="text" value="{{ Carbon\Carbon::parse($item->timer_until)->format('H:i') }}" name="timer_until"/>
+                                                            @if($item->timer_set && $item->timer_until != null)
+                                                                <?php 
+                                                                $timerset = Carbon\Carbon::parse($item->timer_set)->format('H:i');
+                                                                $timeruntil = Carbon\Carbon::parse($item->timer_until)->format('H:i');
+                                                                ?>
+                                                                @else
+                                                                    <?php 
+                                                                    $timerset = null;
+                                                                    $timeruntil =null;
+                                                                    ?>
+                                                                @endif
+                                                                <input class="form-control picker text-center" id="set" type="text" value="{{ $timerset }} " name="timer_set"/>
+                                                                <input class="form-control picker mt-1 text-center" id="until" type="text" value="{{ $timeruntil }}" name="timer_until"/>
                                                                 <button type="submit" class="btn btnRound set ml-2 mt-2">Set</button>
                                                         </div>
                                                     </form>
