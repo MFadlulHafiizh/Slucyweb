@@ -345,14 +345,14 @@
                         $(function(){
                             $('.btnRepeat').on("click",function(e){
                                 e.preventDefault();
-                                var id = $(this).parent().parent().children()[0].innerHTML;
+                                var id = $(this).data('id');
                                 var tr = $(this).parent().parent();
                                 document.getElementById('idmodal').value = id;
                                 document.getElementById('actmodal').action = "day/"+id;
                             });
                         });
                         </script>
-                        <script>
+                        <script type="text/javascript">
                             $(function() {
                               $('.toggle-class').change(function() {
                                   var status = $(this).prop('checked') == true ? "On" : "Off";
@@ -370,7 +370,7 @@
                               })
                             })
                           </script>
-                        <script>
+                        <script type="text/javascript">
                             $(function() {
                                 $('input[name="timer_set"]').timepicker({
                                     timePicker: true,
