@@ -45,7 +45,15 @@
     @if (session('status'))
     <script>
             swal({
-                icon: 'info',
+                icon: 'success',
+                title: 'Password berhasil direset',
+            });
+    </script>
+    @endif
+    @if (session('success'))
+    <script>
+            swal({
+                icon: 'success',
                 title: 'Produk berhasil ditambahkan!',
             });
     </script>
@@ -53,8 +61,8 @@
     @if (session('in'))
     <script>
             swal({
-                icon: 'info',
-                title: 'Status Produk berhasil dimasukan!',
+                icon: 'success',
+                title: 'Produk berhasil dimasukan!',
             });
     </script>
     @endif
@@ -62,7 +70,7 @@
     <script>
             swal({
                 icon: 'info',
-                title: 'Status produk berhasil dikeluarkan!',
+                title: 'Produk dikeluarkan!',
             });
     </script>
     @endif
@@ -320,10 +328,10 @@
                                                 <td>
                                                     <label class="switch"> <input class="toggle-class" data-id="{{ $item->id }}" type="checkbox" {{ $item->power == "On" ? 'checked' : '' }}> <span class="slider round"></span> </label>
                                                 </td>
-                                                <td><form action="/out/{{ $item->id }}" method="POST">
+                                                <td><form action="out/{{ $item->id }}" method="POST">
                                                     @method('PUT')
                                                     @csrf
-                                                    <button type="submit" class="btn btn-link text-dark" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Delete Email History?" onclick="return confirm('Apakah anda yakin ingin Mengubah status data ini?')" onclick="showAlert()">Out</button>
+                                                    <button type="submit" class="btn btn-link text-dark" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Delete Email History?" onclick="return confirm('Apakah anda ingin mengeluarkan ini dari list produk yang anda miliki?')" onclick="showAlert()">Out</button>
                                                 </form>
                                             </tr>
                                             @endforeach
@@ -340,7 +348,7 @@
                                 var id = $(this).parent().parent().children()[0].innerHTML;
                                 var tr = $(this).parent().parent();
                                 document.getElementById('idmodal').value = id;
-                                document.getElementById('actmodal').action = "/day/"+id;
+                                document.getElementById('actmodal').action = "day/"+id;
                             });
                         });
                         </script>
@@ -353,7 +361,7 @@
                                   $.ajax({
                                       type: "GET",
                                       dataType: "json",
-                                      url: '/changePower',
+                                      url: 'changePower',
                                       data: {'power': status, 'id': id_product},
                                       success: function(data){
                                         console.log(data.success)
@@ -384,8 +392,6 @@
                                     cancelButtonText:"&#10005;"
                                 });
                             });
-
-                           
                         </script>
                     <!-- Content Row -->
                     <div class="row">
@@ -443,7 +449,7 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/ss.png" alt="">
+                                            src="img/bg-masthead.png" alt="">
                                     </div>
                                     <p>S-LUCY (Smart Light Ultimate Control by Website) makes extensive use of Bootstrap 4 utility classes in order to reduce
                                         CSS bloat and poor page performance. Custom CSS classes are used to create

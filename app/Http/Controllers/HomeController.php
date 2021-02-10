@@ -132,7 +132,7 @@ class HomeController extends Controller
             'action' => 'In'
             ]);
 
-            return redirect('home')->with('status', 'Product berhasil ditambahkan');
+            return redirect('home')->with('success', 'Product berhasil ditambahkan');
 
         }
 
@@ -188,12 +188,15 @@ class HomeController extends Controller
             RepeatDays::where('id_product',$request->id)->delete();
             $dataSelected = $request->input('day');
 
-            foreach($dataSelected as $row){
-                RepeatDays::create([
-                    'id_product' => $request->id,
-                    'days'       => $row
-                ]);
+            if(!empty($dataSelected)){
+                foreach($dataSelected as $row){
+                    RepeatDays::create([
+                        'id_product' => $request->id,
+                        'days'       => $row
+                    ]);
+                }
             }
+            
             return redirect()->back()->withInput();
         }
         public function testTimeUpdate(Request $request, $id){

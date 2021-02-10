@@ -14,7 +14,6 @@ class Product extends Model
         'product_name',
         'timer_set',
         'timer_until',
-        'days',
         'power',
         'action'
     ];
